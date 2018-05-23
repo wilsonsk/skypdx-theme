@@ -1,9 +1,1 @@
-//  Bootstrap
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
-
-
-/* You can add global styles to this file, and also import other style files */
-$test-var: orangered;
-.test {
-  color: $test-var;
-}
+@import "variables";
