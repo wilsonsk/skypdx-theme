@@ -28,7 +28,7 @@
             ],
             "styles": [
               "src/assets/sass/styles.scss",
-              "../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
+              "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
