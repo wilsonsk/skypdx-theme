@@ -1,1 +1,30 @@
-// Global Sass
+ // Global Sass
+
+// Abstracts
+// Code that does NOT output CSS
+@import "abstracts/_functions";
+@import "abstracts/_mixins";
+@import "abstracts/_variables";
+
+// Base
+// Partial sass file containing base - low level styles
+// Global resets
+// Body element selectors
+@import "base/_animations";
+@import "base/_base";
+@import "base/_typography";
+@import "base/_utilities";
+//
+// // Components
+// // Reusable parts
+// @import "components/_button";
+// @import "components/_composition";
+// @import "components/_feature-box";
+// @import "components/_card";
+//
+// // Layout
+// @import "layout/_header";
+// @import "layout/_grid";
+//
+// // Pages
+// @import "pages/home";
