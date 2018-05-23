@@ -1,0 +1,19 @@
+// Partial sass file containing base - low level styles
+// Global resets
+// Body element selectors
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+// Overall root font size setting: defines 1 rem 100/16px = 6.25%
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
