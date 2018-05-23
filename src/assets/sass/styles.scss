@@ -1,15 +1,12 @@
 // ng Components
 
-//  bootstrap-sass
-@import "boostrap";
-
 // // 7 - 1 File Structure
 //
 // // Abstracts
 // // Code that does NOT output CSS
 // @import "abstracts/_functions";
 // @import "abstracts/_mixins";
-// @import "abstracts/_variables";
+@import "abstracts/_variables";
 //
 // // Base
 // // Partial sass file containing base - low level styles
