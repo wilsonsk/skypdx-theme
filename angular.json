@@ -31,7 +31,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "./src"
+                "./src/node_modules/bootstrap-sass/assets/stylesheets",
+                "./src/assets/sass"
               ]
             },
             "scripts": []
