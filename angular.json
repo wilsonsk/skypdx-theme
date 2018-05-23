@@ -28,8 +28,6 @@
             ],
             "styles": [
               "src/assets/sass/styles.scss",
-              "src/assets/sass/base/_base.scss",
-              "src/assets/sass/base/_typography.scss",
               "node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss"
             ],
             "stylePreprocessorOptions": {
