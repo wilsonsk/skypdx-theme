@@ -27,8 +27,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/sass/styles.scss"
+              "src/assets/sass/styles.scss",
+              "src/assets/sass/main.scss",
+              "../node_modules/assets/stylesheets/_bootstrap.scss",
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "../node_modules/bootstrap/assets/stylesheets"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
