@@ -27,8 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/assets/sass/styles.scss",
-              "src/assets/sass/_bootstrap.scss"
+              "src/assets/sass/_bootstrap.scss",
+              "src/assets/sass/styles.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
