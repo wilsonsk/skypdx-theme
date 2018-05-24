@@ -1,15 +1,15 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
-export class WpService {
+export class EmpService {
   constructor(private httpClient:HttpClient) { }
   configUrl = '../server-config.json';
 
-
-
   getWp() {
-     return this.httpClient.get("http://localhost:4200/php-server/wp/test-select.php");
+    return this.httpClient.get("localhost:4200/php-server/test-select.php");
   }
 
   //
