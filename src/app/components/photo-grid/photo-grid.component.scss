@@ -43,6 +43,7 @@ $photo-grid-width: calc(100% - #{$sidebar-width});
   @media screen and (max-width: $sidebar-breakpoint) {
     margin-left: calc(#{$sidebar-width-hidden} + #{$base-padding});
     width: 100%;
+    padding: 0 0;
   }
 
 }
