@@ -1,0 +1,48 @@
+@import 'abstracts/variables';
+@import "abstracts/mixins";
+
+$photo-grid-breakpoint: 768px;
+$photo-grid-width: calc(100% - #{$sidebar-width});
+
+.photo-grid {
+  width: $photo-grid-width;
+  padding: 0 $base-padding;
+  transition: all 0.3s;
+  position: absolute;
+  top: 0;
+  left: $sidebar-width;
+
+  &__frame {
+    max-width: 34%;
+    margin-bottom: 1%;
+
+    &--width-1 {
+      max-width: 12%;
+    }
+
+    &--width-2 {
+      max-width: 24%;
+    }
+
+    &--width-3 {
+      max-width: 48%;
+    }
+
+    &--width-4 {
+      max-width: 96%;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      @include box_shadow(1);
+      border-radius: $border-radius;
+    }
+  }
+
+  @media screen and (max-width: $sidebar-breakpoint) {
+    margin-left: calc(#{$sidebar-width-hidden} + #{$base-padding});
+    width: 100%;
+  }
+
+}

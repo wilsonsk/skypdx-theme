@@ -6,10 +6,10 @@ export class WpService {
   constructor(private httpClient:HttpClient) { }
   configUrl = '../server-config.json';
 
-
+console
 
   getWp() {
-     return this.httpClient.get("http://localhost:4200/php-server/wp/test-select.php");
+     return this.httpClient.get("http://52.89.243.4");
   }
 
   //

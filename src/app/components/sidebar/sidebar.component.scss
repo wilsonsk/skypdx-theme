@@ -1,0 +1,53 @@
+@import "abstracts/variables";
+@import "abstracts/mixins";
+// Layout
+$sidebar-breakpoint: 768px;
+$sidebar-width: 250px;
+$sidebar-width-neg: calc(-250px + -#{$base-padding});
+$sidebar-height: 94vh;
+
+// Colors
+$sidebar-primary-color: #ff7f50;
+$sidebar-secondary-color: #50f3ff;
+
+.sidebar {
+  width: $sidebar-width;
+  position: fixed;
+  top: $base-padding;
+  left: $base-padding;
+  height: $sidebar-height;
+  z-index: 999;
+  background-color: $sidebar-primary-color;
+  color: #fff !important;
+  transition: all 0.3s;
+  @include box_shadow(1);
+  border-radius: $border-radius;
+
+  &__heading {
+    padding: 20px;
+    background: $sidebar-secondary-color;
+    border-radius: $border-radius;
+    @include box_shadow(1);
+  }
+
+  &__list {
+    padding: 20px 0;
+
+    li {
+      padding: 10px;
+      font-size: 1.1em;
+      display: block;
+      color:white;
+
+      &:hover {
+      	color: orangred;
+      	background: #fff;
+      }
+    }
+  }
+
+  @media screen and (max-width: $sidebar-breakpoint) {
+    margin-left: $sidebar-width-hidden;
+  }
+
+}
