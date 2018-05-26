@@ -10,6 +10,7 @@ import { PhotoService } from '../../services/photo.service';
 })
 export class PhotoGridComponent implements OnInit {
   masonryItems = [];
+  isDraggable: boolean = false;
 
   public myOptions = {
     transitionDuration: '0.8s',
@@ -22,6 +23,10 @@ export class PhotoGridComponent implements OnInit {
     this.photoService.masonryItemsLoaded.subscribe((data) => {
       this.photosLoaded();
     });
+    this.photoService.draggableToggled.subscribe((data) => {
+      this.isDraggable = !this.isDraggable;
+    });
+
   }
 
   photosLoaded() {

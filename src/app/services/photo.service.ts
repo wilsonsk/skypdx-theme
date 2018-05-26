@@ -22,6 +22,7 @@ export class PhotoService {
     { imagePath: 'https://images.unsplash.com/photo-1505150099521-fde7970bcc3a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6328f41af34624007929053f3478c3c1&w=1000&q=80' }
   ];
   @Output() masonryItemsLoaded = new EventEmitter<any>();
+  @Output() draggableToggled = new EventEmitter<any>();
 
   constructor(private wpService: WpService) {
     this.loadWpPhotos();
@@ -53,5 +54,9 @@ export class PhotoService {
 
   getMasonryItems() {
     return this.masonryItems.slice();
+  }
+
+  toggleDraggable() {
+    this.draggableToggled.emit();
   }
 }

@@ -9,18 +9,12 @@ import { ComplementaryColors } from '../../models/complementary-colors.model';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-  @Input() sidebarColor: string;
-  @Input() sidebarWidth: number;
-  @Input() sidebarBreakpoint: number;
-
-  // isColorSet: boolean = false;
-
   colors:ComplementaryColors;
 
   constructor(private complementaryColorsService: ComplementaryColorsService) { }
 
   ngOnInit() {
-    this.colors = this.complementaryColorsService.selectedColors;
+    this.colors = this.complementaryColorsService.getComplementaryColors();
   }
 
   onChangeColors() {
