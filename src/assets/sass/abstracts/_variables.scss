@@ -49,8 +49,7 @@ $gradient-tertiary-transparent: linear-gradient(to right bottom, rgba($color-ter
 $base-padding: 3em;
 $border-radius: 6px;
 
-
-
-$sidebar-breakpoint: 768px;
+// Sidebar
 $sidebar-width: 250px;
+$sidebar-breakpoint: 768px;
 $sidebar-width-hidden: calc(-250px + -#{$base-padding});

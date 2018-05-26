@@ -1,14 +1,13 @@
 @import "abstracts/variables";
 @import "abstracts/mixins";
 // Layout
-$sidebar-breakpoint: 768px;
-$sidebar-width: 250px;
-$sidebar-width-neg: calc(-250px + -#{$base-padding});
-$sidebar-height: 94vh;
 
-// Colors
 $sidebar-primary-color: #ff7f50;
 $sidebar-secondary-color: #50f3ff;
+$sidebar-height: 94vh;
+$sidebar-breakpoint: 768px;
+$sidebar-width: 250px;
+$sidebar-width-hidden: calc(-250px + -#{$base-padding});
 
 .sidebar {
   width: $sidebar-width;

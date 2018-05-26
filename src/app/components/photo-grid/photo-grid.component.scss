@@ -44,20 +44,20 @@ $photo-grid-width: calc(100% - #{$sidebar-width});
     }
   }
 
-  &__photo {
-    border-radius: $border-radius;
-    width: 100%;
-    height: auto;
-    @include img-responsive;
-  }
-
   &:hover &__frame:not(:hover){
     opacity: .6;
   }
 
+  &__photo {
+    border-radius: $border-radius;
+    // width: 100%;
+    // height: auto;
+    @include img-responsive;
+  }
+
   @media screen and (max-width: $sidebar-breakpoint) {
-    margin-left: calc(#{$sidebar-width-hidden} + #{$base-padding});
+    margin-left: $sidebar-width-hidden;
     width: 100%;
-    padding: 0 0;
+    padding: 0 $base-padding;
   }
 }

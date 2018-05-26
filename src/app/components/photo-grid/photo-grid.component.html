@@ -1,11 +1,7 @@
 <ngx-masonry class="photo-grid" [options]="myOptions">
   <ngxMasonryItem class="photo-grid__frame" *ngFor="let photo of masonryItems; let i = index;" appSizePhoto>
-   <article>
-     <figure>
-       <img src="{{ photo.imagePath }}" alt="" class="photo-grid__photo" (click)="onPhotoDetails(photo)">
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate itaque consequatur illo quis, delectus, incidunt labore.</p>
-       <figcaption>Post 1</figcaption>
-     </figure>
-   </article>
+     <img src="{{ photo.imagePath }}" alt="" class="photo-grid__photo" (click)="onPhotoDetails(photo)">
+     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate itaque consequatur illo quis, delectus, incidunt labore.</p>
+     <p>Post 1</p>
  </ngxMasonryItem>
 </ngx-masonry>
