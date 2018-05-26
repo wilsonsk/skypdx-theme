@@ -26,7 +26,6 @@ export class PhotoGridComponent implements OnInit {
     this.photoService.draggableToggled.subscribe((data) => {
       this.isDraggable = !this.isDraggable;
     });
-
   }
 
   photosLoaded() {
