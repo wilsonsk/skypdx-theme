@@ -79,3 +79,7 @@ $photo-grid-width: calc(100% - #{$sidebar-width});
     }
   }
 }
+
+.cursor-draggable {
+  cursor: grab;
+}
