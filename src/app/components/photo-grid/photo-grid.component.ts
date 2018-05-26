@@ -19,6 +19,12 @@ export class PhotoGridComponent implements OnInit {
   constructor(private photoService: PhotoService, private router: Router, private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
+    this.photoService.masonryItemsLoaded.subscribe((data) => {
+      this.photosLoaded();
+    });
+  }
+
+  photosLoaded() {
     this.masonryItems = this.photoService.getMasonryItems();
   }
 

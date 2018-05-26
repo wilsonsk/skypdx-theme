@@ -49,28 +49,28 @@ $sidebar__main-btn-height: 100px;
       @include box_shadow(1);
     }
 
-    &::after {
-      content: "";
-      width: $sidebar-width;
-      height: $sidebar__main-btn-height;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: -1;
-      transition: all .4s;
-
-      background: $sidebar-secondary-color;
-      border-radius: $border-radius;
-    }
-
-    &--animated {
-      animation: moveInButton .5s ease-out .75s;
-      animation-fill-mode: backwards;
-    }
+    // &::after {
+    //   content: "";
+    //   width: $sidebar-width;
+    //   height: $sidebar__main-btn-height;
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   z-index: -1;
+    //   transition: all .4s;
+    //
+    //   background: $sidebar-secondary-color;
+    //   border-radius: $border-radius;
+    // }
+    //
+    // &--animated {
+    //   animation: moveInButton .5s ease-out .75s;
+    //   animation-fill-mode: backwards;
+    // }
   }
 
   &__heading {
-  
+
   }
 
   &__list {

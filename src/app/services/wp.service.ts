@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class WpService {
   constructor(private httpClient:HttpClient) { }
   configUrl = '../server-config.json';
 
-console
-
   getWp() {
-     return this.httpClient.get("http://52.89.243.4");
+    let headers = new HttpHeaders().set('Content-Type', 'application/json');
+    const options = {
+      headers: headers
+    };
+    return this.httpClient.get('http://52.89.243.4/index.php/wp-json/wp/v2/media', options);
   }
 
   //
