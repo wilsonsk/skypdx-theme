@@ -1,19 +1,19 @@
-<div class="sidebar">
-   <nav class="ui__sidebar">
-     <div class="sidebar__heading text-center">
-       <h3>Sky PDX</h3>
-     </div>
-     <ul class="sidebar__list text-center">
-       <p>Menu</p>
-       <li>
-         <a href="#">Photography </a>
-       </li>
-       <li>
-         <a href="#">Web Development</a>
-       </li>
-       <li>
-         <a href="#">Portfolio</a>
-       </li>
-     </ul>
-   </nav>
+<div class="sidebar" [ngStyle]="{'background-color': colors.secondaryColor}">
+ <div class="sidebar__main-btn sidebar__main-btn--animated text-center" (click)="onChangeColors()" [ngStyle]="{'background-color': colors.primaryColor}">
+   <div>
+     <h3 class="sidebar__heading">Sky PDX</h3>
+   </div>
+ </div>
+ <ul class="sidebar__list text-center">
+   <p>Menu</p>
+   <li class="sidebar__list-item sidebar__list-item--animated">
+     <a [ngStyle]="{'color': colors.tertiaryColor}">Photography </a>
+   </li>
+   <li class="sidebar__list-item sidebar__list-item--animated">
+     <a [ngStyle]="{'color': colors.tertiaryColor}">Web Development</a>
+   </li>
+   <li class="sidebar__list-item sidebar__list-item--animated">
+     <a [ngStyle]="{'color': colors.tertiaryColor}">Portfolio</a>
+   </li>
+ </ul>
  </div>

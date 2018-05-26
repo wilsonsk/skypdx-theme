@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { PhotoService } from '../../services/photo.service';
 
@@ -15,14 +16,14 @@ export class PhotoGridComponent implements OnInit {
     gutter: 20,
   };
 
-  constructor(private photoService: PhotoService) { }
+  constructor(private photoService: PhotoService, private router: Router, private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
     this.masonryItems = this.photoService.getMasonryItems();
   }
 
-  onPhotoDetails() {
-    this.photoService.photoClicked.emit();
+  onOpenPhotoDetails() {
+    this.router.navigate(['photo']);
   }
 
 }

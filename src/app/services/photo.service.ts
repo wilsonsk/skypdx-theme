@@ -6,6 +6,12 @@ import { Injectable, EventEmitter, Output } from '@angular/core';
 export class PhotoService {
   private masonryItems = [
     { imagePath: 'http://blog.emauirealestate.com/files/2016/11/hana-cart-900-02.jpg' },
+    { imagePath: 'http://blog.emauirealestate.com/files/2016/11/hana-cart-900-02.jpg' },
+    { imagePath: 'https://www.istockphoto.com/resources/images/PhotoFTLP/img_67920257.jpg' },
+    { imagePath: 'https://www.independent.ie/incoming/article29052573.ece/ALTERNATES/w620/stormy-dunes-think_1108889a.jpg' },
+    { imagePath: 'https://www.istockphoto.com/resources/images/PhotoFTLP/img_67920257.jpg' },
+    { imagePath: 'https://www.istockphoto.com/resources/images/PhotoFTLP/img_67920257.jpg' },
+    { imagePath: 'https://www.istockphoto.com/resources/images/PhotoFTLP/img_67920257.jpg' },
     { imagePath: 'https://www.istockphoto.com/resources/images/PhotoFTLP/img_67920257.jpg' },
     { imagePath: 'https://cdn.cnn.com/cnnnext/dam/assets/180208155400-09-week-in-photos-0209-restricted-super-169.jpg' },
     { imagePath: 'http://illinoisdouble.com/wp-content/uploads/rain-free-photos-957-images-and-pictures-on-pngtree-photos.jpeg' },

@@ -59,5 +59,23 @@ $photo-grid-width: calc(100% - #{$sidebar-width});
     margin-left: $sidebar-width-hidden;
     width: 100%;
     padding: 0 $base-padding;
+
+    &__frame {
+      &--width-1 {
+        max-width: 32%;
+      }
+
+      &--width-2 {
+        max-width: 52%;
+      }
+
+      &--width-3 {
+        max-width: 64%;
+      }
+
+      &--width-4 {
+        max-width: 100%;
+      }
+    }
   }
 }
