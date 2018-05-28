@@ -9,6 +9,9 @@
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+  <?php
+    $test_custom_field = get_post_meta(5, 'test_custom_field', true);
+  ?>
   <app-root></app-root>
 </body>
 </html>
