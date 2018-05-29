@@ -4,6 +4,8 @@ import { Headers } from '@angular/http';
 
 import { Post } from '../../models/post.model';
 
+import { PostsService } from '../../Services/posts.service';
+
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -14,29 +16,11 @@ export class LandingComponent implements OnInit {
 
   postsArray:Post[] = [];
 
-  constructor(private wpApiPosts: WpApiPosts) {
+  constructor(private wpApiPosts: WpApiPosts, private postsService: PostsService) {
   }
 
   ngOnInit() {
-    this.getPosts();
-  }
-
-  getPosts() {
-    console.log(this.postsArray)
-
-    const postsObservable = this.wpApiPosts.getList();
-    const pagesSubsciption = postsObservable.subscribe({
-      next(data) {
-        const posts = data.json();
-
-        for(var post in posts) {
-          if(posts[post].categories[0] == 2) {
-            const curPost = posts[post];
-
-          }
-        }
-      }
-    });
+    this.postsService.getPosts();
   }
 
 }

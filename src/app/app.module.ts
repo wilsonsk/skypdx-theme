@@ -21,6 +21,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { WpService } from './services/wp.service';
 import { PhotoService } from './services/photo.service';
 import { ComplementaryColorsService } from './services/complementary-colors.service';
+import { PostsService } from './services/posts.service';
 
 // Components
 import { AppComponent } from './app.component';
