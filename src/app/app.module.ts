@@ -2,6 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { Http } from '@angular/http';
+import {
+  WpApiModule,
+  WpApiLoader,
+  WpApiStaticLoader
+} from 'wp-api-angular'
+
+export function WpApiLoaderFactory(http: Http) {
+  return new WpApiStaticLoader(http, 'http://skypdx.com/index.php/wp-json/', /* namespace is optional, default: '/wp/v2' */);
+}
+import { Headers } from '@angular/http';
+import { Observable } from 'rxjs';
 
 import { NgxMasonryModule } from 'ngx-masonry';
 
@@ -53,7 +65,12 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     NgxMasonryModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    WpApiModule.forRoot({
+      provide: WpApiLoader,
+      useFactory: (WpApiLoaderFactory),
+      deps: [Http]
+    })
   ],
   providers: [
     WpService,

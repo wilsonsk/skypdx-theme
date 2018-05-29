@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { PhotoService } from '../../services/photo.service';
-import { WpService } from '../../services/wp.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { WpApiPosts } from 'wp-api-angular';
+import { Headers } from '@angular/http';
+
+import { Post } from '../../models/post.model';
 
 @Component({
   selector: 'app-landing',
@@ -8,22 +10,33 @@ import { WpService } from '../../services/wp.service';
   styleUrls: ['./landing.component.scss']
 })
 export class LandingComponent implements OnInit {
-  photoClicked: boolean = false;
+  @Output() landingPageLoaded = new EventEmitter<any>();
 
-  constructor(private wpService:WpService, private photoService: PhotoService) {
+  postsArray:Post[] = [];
+
+  constructor(private wpApiPosts: WpApiPosts) {
   }
 
   ngOnInit() {
-
+    this.getPosts();
   }
 
-  test() {
-    this.wpService.getWp()
-      .subscribe((data) => {
-        console.log("test " + data);
-      });
-  }
+  getPosts() {
+    console.log(this.postsArray)
 
-  title = 'app';
+    const postsObservable = this.wpApiPosts.getList();
+    const pagesSubsciption = postsObservable.subscribe({
+      next(data) {
+        const posts = data.json();
+
+        for(var post in posts) {
+          if(posts[post].categories[0] == 2) {
+            const curPost = posts[post];
+
+          }
+        }
+      }
+    });
+  }
 
 }
