@@ -14,7 +14,7 @@ export class PostsService {
 
   constructor(private wpApiPosts: WpApiPosts) {}
 
-  getPosts() {
+  loadPosts() {
     const postsObservable = this.wpApiPosts.getList();
     const _this = this;
     const pagesSubsciption = postsObservable.subscribe({
@@ -27,8 +27,13 @@ export class PostsService {
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
           }
         }
+        _this.postsLoaded.emit();
       }
     });
+  }
+
+  getPosts() {
+    return this.postsArray.slice();
   }
 
 }

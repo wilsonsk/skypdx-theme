@@ -18,7 +18,6 @@ import { Observable } from 'rxjs';
 import { NgxMasonryModule } from 'ngx-masonry';
 
 // Services
-import { WpService } from './services/wp.service';
 import { PhotoService } from './services/photo.service';
 import { ComplementaryColorsService } from './services/complementary-colors.service';
 import { PostsService } from './services/posts.service';
@@ -74,7 +73,6 @@ const appRoutes: Routes = [
     })
   ],
   providers: [
-    WpService,
     PhotoService,
     ComplementaryColorsService
   ],

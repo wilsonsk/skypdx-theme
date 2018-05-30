@@ -4,7 +4,7 @@ import { Headers } from '@angular/http';
 
 import { Post } from '../../models/post.model';
 
-import { PostsService } from '../../Services/posts.service';
+import { PostsService } from '../../services/posts.service';
 
 @Component({
   selector: 'app-landing',
@@ -20,7 +20,7 @@ export class LandingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.postsService.getPosts();
+    this.postsService.loadPosts();
   }
 
 }

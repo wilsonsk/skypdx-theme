@@ -1,9 +1,9 @@
 <ngx-masonry class="photo-grid" [options]="myOptions" [useImagesLoaded]="true">
-  <ngxMasonryItem DraggableDirective [appDraggable]='isDraggable' class="photo-grid__frame" *ngFor="let photo of masonryItems; let i = index;" appSizePhoto>
-     <img src="{{ photo.imagePath }}" alt="" class="photo-grid__photo">
+  <ngxMasonryItem DraggableDirective [appDraggable]='isDraggable' class="photo-grid__frame" *ngFor="let post of masonryItems; let i = index;" appSizePhoto>
+     <img src="{{ post.imagePath }}" alt="" class="photo-grid__photo">
       <div class="photo-grid__details">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate itaque consequatur illo quis, delectus, incidunt labore.</p>
-        <p>Post 1</p>
+        <h4>{{ post.title }}</h4>
+        <p>{{ post.content }}</p>
       </div>
  </ngxMasonryItem>
 </ngx-masonry>
