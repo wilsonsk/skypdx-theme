@@ -22,20 +22,19 @@ export class PhotoGridComponent implements OnInit {
   constructor(private photoService: PhotoService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService) { }
 
   ngOnInit() {
-    const _this = this;
     this.photoService.draggableToggled.subscribe((data) => {
       this.isDraggable = !this.isDraggable;
     });
     this.postsService.postsLoaded.subscribe((data) => {
-      _this.postsLoaded();
+      this.postsLoaded();
     });
   }
 
-  postsLoaded() {
+  postsLoaded():void {
     this.masonryItems = this.postsService.getPosts();
   }
 
-  onOpenPhotoDetails() {
+  onOpenPhotoDetails():void {
     this.router.navigate(['photo']);
   }
 

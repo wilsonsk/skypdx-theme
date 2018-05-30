@@ -14,13 +14,12 @@ export class PostsService {
 
   constructor(private wpApiPosts: WpApiPosts) {}
 
-  loadPosts() {
+  loadPosts():void {
     const postsObservable = this.wpApiPosts.getList();
     const _this = this;
     const pagesSubsciption = postsObservable.subscribe({
       next(data) {
         const posts = data.json();
-
         for(var post in posts) {
           if(posts[post].categories[0] == 2) {
             const curPost = posts[post];
@@ -32,7 +31,7 @@ export class PostsService {
     });
   }
 
-  getPosts() {
+  getPosts():Post[] {
     return this.postsArray.slice();
   }
 

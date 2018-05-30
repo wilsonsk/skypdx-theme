@@ -17,9 +17,8 @@ export class SidebarComponent implements OnInit {
     this.colors = this.complementaryColorsService.getComplementaryColors();
   }
 
-  onChangeColors() {
+  onChangeColors():void {
     this.colors = this.complementaryColorsService.getComplementaryColors();
-    // this.isColorSet = true;
   }
 
 }
