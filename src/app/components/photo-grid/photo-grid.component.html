@@ -2,7 +2,7 @@
   <ngxMasonryItem DraggableDirective [appDraggable]='isDraggable' class="photo-grid__frame" *ngFor="let post of masonryItems; let i = index;" appSizePhoto>
      <img src="{{ post.imagePath }}" alt="" class="photo-grid__photo">
       <div class="photo-grid__details">
-        <h6 class="f-headline lh-solid">{{ post.title }}</h6>
+        <h6 class="f1-l f2-m  lh-solid">{{ post.title }}</h6>
         <div class="f6 lh-copy">{{ post.content }}</div>
       </div>
  </ngxMasonryItem>
