@@ -13,7 +13,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class LandingComponent implements OnInit {
   @Output() landingPageLoaded = new EventEmitter<any>();
-
+  photoClicked: boolean = false;
   postsArray:Post[] = [];
 
   constructor(private wpApiPosts: WpApiPosts, private postsService: PostsService) {
