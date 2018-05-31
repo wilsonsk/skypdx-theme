@@ -28,6 +28,7 @@
             ],
             "styles": [
               "src/assets/sass/_bootstrap.scss",
+              "src/assets/sass/tachyons-sass/tachyons.scss",
               "src/assets/sass/styles.scss"
             ],
             "stylePreprocessorOptions": {
