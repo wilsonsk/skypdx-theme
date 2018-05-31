@@ -1,11 +1,16 @@
 <div class="sidebar" [ngStyle]="{'background-color': colors.secondaryColor}">
- <div class="sidebar__main-btn sidebar__main-btn--animated text-center" (click)="onChangeColors()" [ngStyle]="{'background-color': colors.primaryColor}">
-   <div>
-     <h3 class="sidebar__heading">Sky PDX</h3>
-   </div>
+ <div class="sidebar__main-btn sidebar__main-btn--animated br2" (click)="onChangeColors()" [ngStyle]="{'background-color': colors.primaryColor}">
+     <h3 class="sidebar__heading pl4 pt4"><span class="f-title lh-title fw6">Sky</span><span class="f4 fw1 pl3">PDX</span></h3>
+     <p class="w-90 f5 pl4 bl bw3 lh-copy">
+       "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non earum assumenda hic amet ab."
+       <i class="pl3">- anonymous</i>
+     </p>
+     <hr class="w-75 ml4">
+     <code class="db f6 lh-copy pl4 pt3">
+       Angular developer in Vancouver, Wa.
+     </code>
  </div>
- <ul class="sidebar__list text-center">
-   <p>Menu</p>
+ <ul class="sidebar__list pt5">
    <li class="sidebar__list-item sidebar__list-item--animated">
      <a [ngStyle]="{'color': colors.tertiaryColor}">Photography </a>
    </li>

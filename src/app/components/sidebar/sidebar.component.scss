@@ -11,7 +11,7 @@ $sidebar-breakpoint: 768px;
 $sidebar-width: 250px;
 $sidebar-width-hidden: calc(-250px + -#{$base-padding});
 
-$sidebar__main-btn-height: 100px;
+$sidebar__main-btn-height: 155px;
 
 .sidebar {
   width: $sidebar-width;
@@ -27,12 +27,9 @@ $sidebar__main-btn-height: 100px;
   border-radius: $border-radius;
 
   &__main-btn {
-    padding: 20px;
     background: $sidebar-secondary-color;
-    border-radius: $border-radius;
     @include box_shadow(1);
     height: $sidebar__main-btn-height;
-    text-transform: uppercase;
 
     &:hover {
       transform: translateY(-.3rem);
@@ -74,14 +71,9 @@ $sidebar__main-btn-height: 100px;
   }
 
   &__list {
-    padding: 20px 0;
   }
 
   &__list-item {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-    color:white;
 
     a {
       color: $sidebar-secondary-color;
