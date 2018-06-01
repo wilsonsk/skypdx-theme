@@ -1,6 +1,7 @@
-import { Injectable, Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Injectable, Component, OnInit } from '@angular/core';
 import { WpApiPosts } from 'wp-api-angular';
 import { Headers } from '@angular/http';
+import { Subject } from 'rxjs';
 
 import { Post } from '../models/post.model';
 
@@ -8,7 +9,7 @@ import { Post } from '../models/post.model';
   providedIn: 'root'
 })
 export class PostsService {
-  @Output() postsLoaded = new EventEmitter<any>();
+  postsLoaded = new Subject<any>();
 
   postsArray:Post[] = [];
 
@@ -26,7 +27,7 @@ export class PostsService {
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
           }
         }
-        _this.postsLoaded.emit();
+        _this.postsLoaded.next();
       }
     });
   }

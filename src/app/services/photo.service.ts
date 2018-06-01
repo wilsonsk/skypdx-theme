@@ -1,15 +1,16 @@
-import { Injectable, EventEmitter, Output } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
-  @Output() draggableToggled = new EventEmitter<any>();
+  draggableToggled = new Subject<any>();
 
   constructor() {
   }
 
   toggleDraggable() {
-    this.draggableToggled.emit();
+    this.draggableToggled.next();
   }
 }

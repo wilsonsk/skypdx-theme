@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy  } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 import { PhotoService } from '../../services/photo.service';
 import { PostsService } from '../../services/posts.service';
@@ -10,9 +11,11 @@ import { Post } from '../../models/post.model';
   templateUrl: './photo-grid.component.html',
   styleUrls: ['./photo-grid.component.scss']
 })
-export class PhotoGridComponent implements OnInit {
+export class PhotoGridComponent implements OnInit, OnDestroy  {
   masonryItems: Post[] = [];
   isDraggable: boolean = false;
+  private isDraggableSubscription: Subscription;
+  private postsLoadedSubscription: Subscription;
 
   public myOptions = {
     transitionDuration: '0.8s',
@@ -22,10 +25,10 @@ export class PhotoGridComponent implements OnInit {
   constructor(private photoService: PhotoService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService) { }
 
   ngOnInit() {
-    this.photoService.draggableToggled.subscribe((data) => {
+    this.isDraggableSubscription = this.photoService.draggableToggled.subscribe((data) => {
       this.isDraggable = !this.isDraggable;
     });
-    this.postsService.postsLoaded.subscribe((data) => {
+    this.postsLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
       this.postsLoaded();
     });
   }
@@ -36,6 +39,10 @@ export class PhotoGridComponent implements OnInit {
 
   onOpenPhotoDetails():void {
     this.router.navigate(['photo']);
+  }
+
+  ngOnDestroy() {
+
   }
 
 }

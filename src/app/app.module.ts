@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+
 import { Http } from '@angular/http';
 import {
   WpApiModule,
@@ -65,7 +67,8 @@ const appRoutes: Routes = [
     BrowserModule,
     HttpClientModule,
     NgxMasonryModule,
-    RouterModule.forRoot(appRoutes),
+    // RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     WpApiModule.forRoot({
       provide: WpApiLoader,
       useFactory: (WpApiLoaderFactory),
