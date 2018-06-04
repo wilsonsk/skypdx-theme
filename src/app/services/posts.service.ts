@@ -12,6 +12,7 @@ export class PostsService {
   postsLoaded = new Subject<any>();
 
   postsArray:Post[] = [];
+  postById:Post;
 
   constructor(private wpApiPosts: WpApiPosts) {}
 
@@ -36,4 +37,19 @@ export class PostsService {
     return this.postsArray.slice();
   }
 
+  loadPostById(id:number):void {
+    const postsObservable = this.wpApiPosts.get(id);
+    const _this = this;
+    const pagesSubsciption = postsObservable.subscribe({
+      next(data) {
+        const post = data.json();
+        _this.postById = new Post(post.id,post.author,post.categories[0],post.title['rendered'],post.acf['featured_image'], post.content['rendered'], post.date, post.link)
+        _this.postsLoaded.next();
+      }
+    });
+  }
+
+  getPostById():Post {
+    return this.postById;
+  }
 }

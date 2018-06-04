@@ -1,6 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { WpApiPosts } from 'wp-api-angular';
-import { Headers } from '@angular/http';
+
 
 import { Post } from '../../models/post.model';
 
@@ -14,9 +13,8 @@ import { PostsService } from '../../services/posts.service';
 export class LandingComponent implements OnInit {
   @Output() landingPageLoaded = new EventEmitter<any>();
   photoClicked: boolean = false;
-  postsArray:Post[] = [];
 
-  constructor(private wpApiPosts: WpApiPosts, private postsService: PostsService) {
+  constructor(private postsService: PostsService) {
   }
 
   ngOnInit() {

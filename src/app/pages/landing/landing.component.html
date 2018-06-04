@@ -1,12 +1,8 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12" *ngIf="!photoClicked; else photoDetails">
+    <div class="col-xs-12">
       <app-sidebar></app-sidebar>
       <app-photo-grid></app-photo-grid>
     </div>
-    <ng-template #photoDetails>
-      <app-sidebar></app-sidebar>
-      <h1 style="float:right;">Photo Details...</h1>
-    </ng-template>
   </div>
 </div>
