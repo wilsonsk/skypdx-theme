@@ -1,0 +1,6 @@
+$photo-detail-height: calc(96vh);
+
+.photo-detail {
+  min-height: $photo-detail-height;
+  border:solid black 1px;
+}
