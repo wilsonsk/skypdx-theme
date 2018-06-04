@@ -24,7 +24,7 @@ export class PostsService {
         for(var post in posts) {
           if(posts[post].categories[0] == 2) {
             const curPost = posts[post];
-            _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
+            _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
           }
         }
         _this.postsLoaded.next();
