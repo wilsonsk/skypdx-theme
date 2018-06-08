@@ -2,21 +2,17 @@
 @import 'abstracts/mixins';
 @import 'bootstrap/mixins/image';
 
-$photo-grid-breakpoint: 768px;
-$photo-grid-width: calc(100% - #{$sidebar-width});
-
 .photo-grid {
   width: $photo-grid-width;
   padding: 0 $base-padding;
   transition: all 0.3s;
-  position: absolute;
-  top: 0;
+  // position: absolute;
+  // top: 0;
   left: $sidebar-width;
 
   &__frame {
     max-width: 34%;
     text-decoration: none;
-    // padding: $base-padding;
     color:#424242;
     @box-shadow: 0;
     margin-bottom: 1%;
@@ -48,7 +44,6 @@ $photo-grid-width: calc(100% - #{$sidebar-width});
     &:hover{
       @include box_shadow(4);
 
-
       .photo-grid__details {
         color: black;
       }
@@ -69,7 +64,6 @@ $photo-grid-width: calc(100% - #{$sidebar-width});
   @media screen and (max-width: $sidebar-breakpoint) {
     margin-left: $sidebar-width-hidden;
     width: 100%;
-    padding: 0 $base-padding;
 
     &__frame {
       &--width-1 {

@@ -50,6 +50,14 @@ $base-padding: 3em;
 $border-radius: 6px;
 
 // Sidebar
-$sidebar-width: 250px;
+$sidebar-primary-color: #ff7f50;
+$sidebar-secondary-color: #50f3ff;
+$sidebar-height: 94vh;
 $sidebar-breakpoint: 768px;
-$sidebar-width-hidden: calc(-250px + -#{$base-padding});
+$sidebar-width: 350px;
+$sidebar-width-hidden: calc(-#{$sidebar-width} + -#{$base-padding});
+$sidebar__main-btn-height: 225px;
+
+// Photo grid
+$photo-grid-breakpoint: 768px;
+$photo-grid-width: calc(100% - #{$sidebar-width});

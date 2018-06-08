@@ -4,20 +4,20 @@
 
 // Layout
 
-$sidebar-primary-color: #ff7f50;
-$sidebar-secondary-color: #50f3ff;
-$sidebar-height: 94vh;
-$sidebar-breakpoint: 768px;
-$sidebar-width: 250px;
-$sidebar-width-hidden: calc(-250px + -#{$base-padding});
-
-$sidebar__main-btn-height: 155px;
+// $sidebar-primary-color: #ff7f50;
+// $sidebar-secondary-color: #50f3ff;
+// $sidebar-height: 94vh;
+// $sidebar-breakpoint: 768px;
+// $sidebar-width: 250px;
+// $sidebar-width-hidden: calc(-#{$sidebar-width} + -#{$base-padding});
+//
+// $sidebar__main-btn-height: 225px;
 
 .sidebar {
   width: $sidebar-width;
   position: fixed;
-  top: $base-padding;
-  left: $base-padding;
+  // top: $base-padding;
+  // left: $base-padding;
   height: $sidebar-height;
   z-index: 999;
   background-color: $sidebar-primary-color;
