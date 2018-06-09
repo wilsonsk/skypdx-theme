@@ -1,14 +1,12 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
-@import 'bootstrap/mixins/image';
 
 .photo-grid {
   width: $photo-grid-width;
-  padding: 0 $base-padding;
   transition: all 0.3s;
-  // position: absolute;
-  // top: 0;
-  left: $sidebar-width;
+  left: calc(#{$sidebar-width} + #{$base-padding});
+  padding-left: $base-padding;
+  margin-top: $base-padding;
 
   &__frame {
     max-width: 34%;
@@ -48,11 +46,15 @@
         color: black;
       }
     }
+    &:active{
+      @include box_shadow(0);
+
+    }
   }
 
-  &:hover &__frame:not(:hover){
-    opacity: .6;
-  }
+  // &:hover &__frame:not(:hover){
+  //   opacity: .6;
+  // }
 
   &__photo {
     border-radius: $border-radius;
@@ -63,7 +65,7 @@
 
   @media screen and (max-width: $sidebar-breakpoint) {
     margin-left: $sidebar-width-hidden;
-    width: 100%;
+    width: $photo-grid-width-responsive;
 
     &__frame {
       &--width-1 {

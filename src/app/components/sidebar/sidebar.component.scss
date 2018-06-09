@@ -17,7 +17,8 @@
   width: $sidebar-width;
   position: fixed;
   // top: $base-padding;
-  // left: $base-padding;
+  // left: 0;
+  margin-left: $base-padding;
   height: $sidebar-height;
   z-index: 999;
   background-color: $sidebar-primary-color;
