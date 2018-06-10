@@ -1,22 +1,22 @@
 
 <div class="flex h-100">
-  <div class="flex flex-column  justify-around  ">
+  <div class="flex flex-column justify-around" [@leftSideBar]>
     <code>left sidebar</code>
   </div>
-  <div class="flex w-100 flex-column ">
+  <div class="flex w-100 flex-column">
     <div class="flex w-100  h3">
-        <h3 class=" helvetica mt0 pa4"><span class="f4 fw1 pl3 tracked-mega">{{ post.title }}</span></h3>
+        <h3 *ngIf="post" class=" helvetica mt0 pa4"><span class="f4 fw1 pl3 tracked-mega">{{ post.title }}</span></h3>
     </div>
-    <div class="flex w-100  h-100">
-        <img class="db " src="{{ post.imagePath }}" alt=""/>
+    <div class="flex w-100 h-100">
+        <img *ngIf="post" class="db" src="{{ post.imagePath }}" alt="" [@photo]/>
     </div>
     <div class="flex w-100  h3">
         <p class="test-height">footer</p>
     </div>
   </div>
-  <div class="flex flex-column  justify-around">
-    <code class="">right sidebar</code>
-    <code class="">right sidebar</code>
-    <h3 class="helvetica pr4" style="writing-mode:vertical-rl;"><span class="f1 lh-solid fw6 tracked">Sky</span><span class="f4 fw1 pl3 tracked-mega">PDX</span></h3>
+  <div class="flex flex-column justify-around" [@rightSideBar]>
+    <code class="tr">right sidebar</code>
+    <code class="tr">right sidebar</code>
+    <h3 class="helvetica pr4" style="writing-mode:vertical-rl;" [@rightSideBarLogo]><span class="f1 lh-solid fw6 tracked">Sky</span><span class="f4 fw1 pl3 tracked-mega">PDX</span></h3>
   </div>
 </div>

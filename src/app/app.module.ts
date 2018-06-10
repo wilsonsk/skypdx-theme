@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Http } from '@angular/http';
 import {
   WpApiModule,
@@ -69,6 +69,7 @@ const appRoutes: Routes = [
     NgxMasonryModule,
     // RouterModule.forRoot(appRoutes),
     AppRoutingModule,
+    BrowserAnimationsModule,
     WpApiModule.forRoot({
       provide: WpApiLoader,
       useFactory: (WpApiLoaderFactory),
