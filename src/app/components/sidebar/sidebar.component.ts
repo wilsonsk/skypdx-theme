@@ -20,7 +20,7 @@ import { ComplementaryColors } from '../../models/complementary-colors.model';
          'transform': 'translateX(-100%)',
          'opacity': '0'
        })
-     ]),
+     )
    ])
  ]
 })
