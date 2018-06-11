@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { trigger, transition, style, query, animate, keyframes, group, animateChild } from '@angular/animations';
+import { state, trigger, transition, style, query, animate, keyframes, group, animateChild } from '@angular/animations';
 
 import { PostsService } from '../../../services/posts.service';
 
@@ -13,13 +13,14 @@ import { Post } from '../../../models/post.model';
   styleUrls: ['./photo-details.component.scss'],
   animations: [
     trigger('leftSideBar', [
+      // state('*', style({transform: 'translateX(0)', opacity: 1})),
       transition('void => *', [
         query('code', [
           style({
             'opacity': '0',
-            'transform': 'translateX(-500px)'
+            'transform': 'translateX(-100%)'
           }),
-          animate('2s')
+          animate('1s')
         ])
       ])
     ]),
@@ -28,9 +29,9 @@ import { Post } from '../../../models/post.model';
         query('code', [
           style({
             'opacity': '0',
-            // 'transform': 'translateX(500px)'
+            'transform': 'translateX(100%)'
           }),
-          animate('2s')
+          animate('1s')
         ]),
         query('@rightSideBarLogo', [
           animateChild()
@@ -49,13 +50,13 @@ import { Post } from '../../../models/post.model';
     trigger('rightSideBarLogo', [
       transition('void => *', [
         style({'opacity': '0'}),
-        animate('4s')
+        animate('2s')
       ])
     ]),
     trigger('photo', [
       transition('void => *', [
-        // style({'width': '100%'}),
-        // animate('6s')
+        style({'opacity': '0'}),
+        animate('2s')
       ])
     ]),
   ]

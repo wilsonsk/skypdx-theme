@@ -10,7 +10,15 @@ import { Post } from '../../models/post.model';
 @Component({
   selector: 'app-photo-grid',
   templateUrl: './photo-grid.component.html',
-  styleUrls: ['./photo-grid.component.scss']
+  styleUrls: ['./photo-grid.component.scss'],
+  animations: [
+    trigger('routeAnimation', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(4000)
+      ]),
+    ])
+  ]
 })
 export class PhotoGridComponent implements OnInit, OnDestroy  {
   masonryItems: Post[] = [];

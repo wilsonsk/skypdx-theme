@@ -1,4 +1,4 @@
-<div class="sidebar" [ngStyle]="{'background-color': colors.secondaryColor}">
+<div class="sidebar" [@routeAnimation] [ngStyle]="{'background-color': colors.secondaryColor}">
  <div class="sidebar__main-btn sidebar__main-btn--animated br2" (click)="onChangeColors()" [ngStyle]="{'background-color': colors.primaryColor}">
      <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked">Sky</span><span class="f4 fw1 pl3 tracked-mega">PDX</span></h3>
      <p class="w-90 helvetica f3 lh-copy pl4 bl bw3">
