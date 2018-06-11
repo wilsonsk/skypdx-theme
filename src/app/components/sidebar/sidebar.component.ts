@@ -19,8 +19,8 @@ import { ComplementaryColors } from '../../models/complementary-colors.model';
        animate(1000, style({
          'transform': 'translateX(-100%)',
          'opacity': '0'
-       })
-     )
+       }))
+     ])
    ])
  ]
 })
