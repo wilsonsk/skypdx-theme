@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostBinding } from '@angular/core';
-import { state, trigger, transition, style, animate } from '@angular/animations';
+import { state, trigger, transition, style, animate, keyframes } from '@angular/animations';
 
 import { ComplementaryColorsService } from '../../services/complementary-colors.service';
 import { ComplementaryColors } from '../../models/complementary-colors.model';

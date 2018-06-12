@@ -12,28 +12,66 @@ export class ComplementaryColorsService {
     {
       primaryColor: '#ff7f50',
       secondaryColor: '#50f3ff',
-      tertiaryColor: '#50ff5c'
+      tertiaryColor: '#50ff5c',
+      textColorPrimary: '#F4F4F4',
+      textColorSecondary: '#F4F4F4'
     },
     {
       primaryColor: '#ffb2ad',
       secondaryColor: '#adebff',
-      tertiaryColor: '#ccffad'
+      tertiaryColor: '#ccffad',
+      textColorPrimary: '#F4F4F4',
+      textColorSecondary: '#F4F4F4'
     },
     {
       primaryColor: '#ff5191',
       secondaryColor: '#91ff51',
-      tertiaryColor: '#e8ff51'
+      tertiaryColor: '#e8ff51',
+      textColorPrimary: '#F4F4F4',
+      textColorSecondary: '#F4F4F4'
     },
     {
       primaryColor: '#88b6ff',
       secondaryColor: '#ffb888',
-      tertiaryColor: '#ff9a88'
+      tertiaryColor: '#ff9a88',
+      textColorPrimary: '#F4F4F4',
+      textColorSecondary: '#F4F4F4'
+    },
+    {
+      primaryColor: '#FFD700 ',
+      secondaryColor: '#000000',
+      tertiaryColor: '#ff9a88',
+      textColorPrimary: '#000000',
+      textColorSecondary: '#F4F4F4'
+    },
+    {
+      primaryColor: '#357EDD  ',
+      secondaryColor: '#ffb888',
+      tertiaryColor: '#ff9a88',
+      textColorPrimary: '#000000 ',
+      textColorSecondary: '#F4F4F4'
+    },
+    {
+      primaryColor: '#F6FFFE ',
+      secondaryColor: '#',
+      tertiaryColor: '#ff9a88',
+      textColorPrimary: '#000000 ',
+      textColorSecondary: '#F4F4F4'
+    },
+    {
+      primaryColor: '#F6FFFE ',
+      secondaryColor: '#ffb888',
+      tertiaryColor: '#ff9a88',
+      textColorPrimary: '#000000 ',
+      textColorSecondary: '#F4F4F4'
     },
   ];
   public defaultColors: ComplementaryColors = {
-      primaryColor: 'black',
-      secondaryColor: 'white',
-      tertiaryColor: 'black'
+      primaryColor: '#FF4136',
+      secondaryColor: '#F4F4F4',
+      tertiaryColor: '#333333',
+      textColorPrimary: '#F4F4F4',
+      textColorSecondary: '#FFFF00'
     }
     isDefaultColorSelected: boolean = false;
 

@@ -49,8 +49,13 @@ import { Post } from '../../../models/post.model';
     // ]),
     trigger('rightSideBarLogo', [
       transition('void => *', [
-        style({'opacity': '0'}),
-        animate('2s')
+        // style({'opacity': '0'}),
+        animate('2s', keyframes([
+          style({ 'opacity': '0', offset: 0}),
+          style({ 'opacity': '1', 'color': '#357EDD', offset: 0}),
+          style({ 'opacity': '1', 'color': '#FFFF00', offset: 0.6}),
+          style({ 'opacity': '1', 'color': 'black', offset: 1}),
+        ]))
       ])
     ]),
     trigger('photo', [

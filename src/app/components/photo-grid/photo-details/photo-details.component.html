@@ -4,13 +4,13 @@
     <code>left sidebar</code>
   </div>
   <div class="flex w-100 flex-column">
-    <div class="flex w-100  h3">
-        <h3 *ngIf="post" class=" helvetica mt0 pa4"><span class="f4 fw1 pl3 tracked-mega">{{ post.title }}</span></h3>
+    <div class="flex w-100 pa4">
+        <h3 *ngIf="post" class=" helvetica mt0 "><span class="f4 fw1 pl3 tracked-mega">{{ post.title }}</span></h3>
     </div>
     <div class="flex w-100 h-100">
         <img *ngIf="post" class="db" src="{{ post.imagePath }}" alt="" [@photo]/>
     </div>
-    <div class="flex w-100  h3">
+    <div class="flex w-100 pa4">
         <p class="test-height">footer</p>
     </div>
   </div>
