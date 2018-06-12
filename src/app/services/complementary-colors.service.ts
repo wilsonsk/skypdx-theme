@@ -69,7 +69,7 @@ export class ComplementaryColorsService {
   public defaultColors: ComplementaryColors = {
       primaryColor: '#FF4136',
       secondaryColor: '#F4F4F4',
-      tertiaryColor: '#333333',
+      tertiaryColor: '#555555',
       textColorPrimary: '#F4F4F4',
       textColorSecondary: '#FFFF00'
     }
