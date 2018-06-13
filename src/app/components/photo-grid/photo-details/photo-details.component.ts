@@ -69,7 +69,8 @@ import { Post } from '../../../models/post.model';
 export class PhotoDetailsComponent implements OnInit, OnDestroy {
   post: Post;
   private postLoadedSubscription: Subscription;
-  titleColor:string = "#FF4136";
+  titleColor:string = "#000";
+  logoColor:string = "#000";
 
   constructor(private postsService:PostsService, private activatedRouter: ActivatedRoute) { }
 
@@ -82,6 +83,10 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   postLoaded():void {
     const curPost = this.postsService.getPostById();
     this.post = curPost;
+  }
+
+  onLeftArrowClick() {
+    alert('ccedd')
   }
 
   ngOnDestroy() {

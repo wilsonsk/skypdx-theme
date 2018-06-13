@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
+import { state, trigger, transition, style, query, animate, keyframes, group, animateChild } from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -12,12 +12,14 @@ import { Post } from '../../models/post.model';
   templateUrl: './photo-grid.component.html',
   styleUrls: ['./photo-grid.component.scss'],
   animations: [
-    trigger('routeAnimation', [
+    trigger('loadGrid', [
       transition('void => *', [
-        style({opacity: 0}),
-        animate(4000)
-      ]),
-    ])
+        style({
+          'opacity': '0',
+        }),
+        animate(3000)
+      ])
+    ]),
   ]
 })
 export class PhotoGridComponent implements OnInit, OnDestroy  {

@@ -1,23 +1,24 @@
 
 <div class="flex h-100">
-  <div class="flex flex-column justify-around" [@leftSideBar]>
-    <code>left sidebar</code>
+  <div class="mw3 flex flex-column justify-around" [@leftSideBar]>
+    <code class="tr">open details</code>
+    <code (click)="onLeftArrowClick()">left arrow</code>
   </div>
-  <div class="flex w-100 flex-column">
+  <div class="flex w-100 flex-column content-center">
     <div class="flex w-100 pa4">
         <h3 *ngIf="post" class=" helvetica mt0 "><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':titleColor }">{{ post.title }}</span></h3>
     </div>
-    <div class="flex w-100 h-100">
-      <img *ngIf="post" class="db" src="{{ post.imagePath }}" alt="" [@photo]/>
+    <div class="tc h-100">
+      <img *ngIf="post" class="db mw-100" src="{{ post.imagePath }}" alt="" [@photo] style="margin:0 auto;"/>
       <!-- <div *ngIf="post" class="db" src="{{ post.imagePath }}" alt="" [@photo]></div> -->
     </div>
     <div class="flex w-100 pa4">
         <p class="test-height">footer</p>
     </div>
   </div>
-  <div class="flex flex-column justify-around" [@rightSideBar]>
-    <code class="tr">right sidebar</code>
-    <code class="tr">right sidebar</code>
-    <h3 class="helvetica pr4" style="writing-mode:vertical-rl;" [@rightSideBarLogo]><span class="f1 lh-solid fw6 tracked">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':titleColor, 'filter': 'contrast(200%)' }">PDX</span></h3>
+  <div class="mw3 flex flex-column justify-around" [@rightSideBar]>
+    <code class="tr">open details</code>
+    <code class="tr">right arrow</code>
+    <h3 class="helvetica pr1" style="writing-mode:vertical-rl;"><span class="f1 fw6 tracked" [@rightSideBarLogo]>Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':logoColor, 'filter': 'contrast(200%)' }">PDX</span></h3>
   </div>
 </div>
