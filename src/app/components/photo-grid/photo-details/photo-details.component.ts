@@ -72,13 +72,14 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   private postLoadedSubscription: Subscription;
   titleColor:string = "#000";
   logoColor:string = "#000";
+  curPostId:number;
 
   constructor(private postsService:PostsService, private activatedRouter: ActivatedRoute) { }
 
   ngOnInit() {
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
-      this.postLoaded();
+      // this.postLoaded();
       this.postsLoaded();
     });
   }
@@ -86,18 +87,25 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   postLoaded():void {
     const curPost = this.postsService.getPostById();
     this.post = curPost;
+    this.curPostId = curPost.id;
   }
 
   postsLoaded():void {
+    this.curPostId = this.postsService.curId;
     const posts = this.postsService.getPosts();
     this.posts = posts;
+    let _this = this;
+    const tempArr = this.posts.filter((p) => {
+      return p.id == _this.curPostId;
+    });
+    this.post = tempArr[0];
   }
 
-  onLeftArrowClick() {
+  onLeftArrowClick():void {
     alert(this.posts)
   }
 
-  ngOnDestroy() {
+  ngOnDestroy():void {
     this.postLoadedSubscription.unsubscribe();
   }
 }

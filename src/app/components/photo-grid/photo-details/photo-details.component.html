@@ -6,7 +6,7 @@
   </div>
   <div class="flex w-100 flex-column content-center">
     <div class="flex w-100 pa4">
-        <h3 *ngIf="post" class=" helvetica mt0 "><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':titleColor }">{{ post.title }}</span></h3>
+        <h3 *ngIf="post" class=" helvetica mt0 "><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':textColorSecondary }">{{ post.title }}</span></h3>
     </div>
     <div class="tc h-100">
       <img *ngIf="post" class="db mw-100" src="{{ post.imagePath }}" alt="" [@photo] style="margin:0 auto;"/>

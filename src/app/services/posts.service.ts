@@ -10,7 +10,7 @@ import { Post } from '../models/post.model';
 })
 export class PostsService {
   postsLoaded = new Subject<any>();
-
+  curId:number;
   postsArray:Post[] = [];
   postById:Post;
 
@@ -38,8 +38,10 @@ export class PostsService {
   }
 
   loadPostById(id:number):void {
+    this.curId = id;
     const postsObservable = this.wpApiPosts.get(id);
     const _this = this;
+    let i = 0;
     const pagesSubsciption = postsObservable.subscribe({
       next(data) {
         const post = data.json();

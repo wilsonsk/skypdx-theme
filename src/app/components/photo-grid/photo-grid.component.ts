@@ -17,7 +17,7 @@ import { Post } from '../../models/post.model';
         style({
           'opacity': '0',
         }),
-        animate(3000)
+        animate(2000)
       ])
     ]),
   ]

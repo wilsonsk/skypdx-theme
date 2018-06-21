@@ -66,12 +66,19 @@ export class ComplementaryColorsService {
       textColorSecondary: '#F4F4F4'
     },
   ];
+  // public defaultColors: ComplementaryColors = {
+  //     primaryColor: '#FF4136',
+  //     secondaryColor: '#F4F4F4',
+  //     tertiaryColor: '#555555',
+  //     textColorPrimary: '#F4F4F4',
+  //     textColorSecondary: '#FFFF00'
+  //   }
   public defaultColors: ComplementaryColors = {
-      primaryColor: '#FF4136',
+      primaryColor: '#999999',
       secondaryColor: '#F4F4F4',
-      tertiaryColor: '#555555',
-      textColorPrimary: '#F4F4F4',
-      textColorSecondary: '#FFFF00'
+      tertiaryColor: '#000000',
+      textColorPrimary: '#000000 ',
+      textColorSecondary: '#000000'
     }
     isDefaultColorSelected: boolean = false;
 
