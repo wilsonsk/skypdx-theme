@@ -80,7 +80,7 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
-      alert('pressed back button - need to fix state')
+      this.location.back();
     });
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
