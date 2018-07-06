@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { state, trigger, transition, style, query, animate, keyframes, group, animateChild } from '@angular/animations';
 import { Location } from '@angular/common';
@@ -76,11 +76,11 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   logoColor:string = "#000";
   curPostId:number;
 
-  constructor(private postsService:PostsService, private activatedRoute: ActivatedRoute, private location: Location) { }
+  constructor(private postsService:PostsService, private activatedRoute: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit() {
     this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
-      this.location.back();
+      this.location.back(1);
     });
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
@@ -108,6 +108,10 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
 
   onLeftArrowClick():void {
     alert(this.posts)
+  }
+
+  onLogoClick() {
+    // this.router.navigate(['/']);
   }
 
   ngOnDestroy():void {

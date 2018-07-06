@@ -1,11 +1,13 @@
-$photo-detail-height: calc(96vh);
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
 
 .photo-detail {
   // min-height: $photo-detail-height;
   // border:solid black 1px;
 
   &__image {
-    height: 93vh;
+    height: 92vh;
+    padding-bottom: $base-padding;
     object-fit: cover;
   }
 }
