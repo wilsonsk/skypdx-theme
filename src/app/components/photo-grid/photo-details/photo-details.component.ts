@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { state, trigger, transition, style, query, animate, keyframes, group, animateChild } from '@angular/animations';
+import { Location } from '@angular/common';
 
 import { PostsService } from '../../../services/posts.service';
 
@@ -70,13 +71,17 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   post: Post;
   posts: Post[];
   private postLoadedSubscription: Subscription;
+  private locationSubscription: Subscription;
   titleColor:string = "#000";
   logoColor:string = "#000";
   curPostId:number;
 
-  constructor(private postsService:PostsService, private activatedRouter: ActivatedRoute) { }
+  constructor(private postsService:PostsService, private activatedRoute: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
+    this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
+      alert('pressed back button - need to fix state')
+    });
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
       // this.postLoaded();

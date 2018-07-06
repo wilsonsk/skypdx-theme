@@ -22,19 +22,22 @@ export class SizePhotoDirective implements OnInit {
   getWidthClass() {
     const widthSelector = Math.floor(Math.random() * this.widthClasses.length);
 
-    switch(this.widthClasses[widthSelector]) {
-      case 'photo-grid__frame--width-1':
-        this.w1 = true;
-        break;
-      case 'photo-grid__frame--width-2':
-        this.w2 = true;
-        break;
-      case 'photo-grid__frame--width-3':
-        this.w3 = true;
-        break;
-      case 'photo-grid__frame--width-4':
-        this.w4 = true;
-        break;
-    }
+    // switch(this.widthClasses[widthSelector]) {
+    //   case 'photo-grid__frame--width-1':
+    //     this.w1 = true;
+    //     break;
+    //   case 'photo-grid__frame--width-2':
+    //     this.w2 = true;
+    //     break;
+    //   case 'photo-grid__frame--width-3':
+    //     this.w3 = true;
+    //     break;
+    //   case 'photo-grid__frame--width-4':
+    //     this.w4 = true;
+    //     break;
+    // }
+
+    this.w3 = true;
+
   }
 }

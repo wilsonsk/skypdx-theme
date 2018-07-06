@@ -27,6 +27,8 @@
 
     &--width-3 {
       max-width: 48%;
+      max-width: 31%;
+
     }
 
     &--width-4 {
@@ -53,11 +55,13 @@
   }
 
   // &:hover &__frame:not(:hover){
-  //   opacity: .6;
+  //   // opacity: .6;
+  //   filter: blur(3px) brightness(80%);
   // }
 
   &__photo {
     border-radius: $border-radius;
+    object-fit: cover;
     // width: 100%;
     // height: auto;
     @include img-responsive;

@@ -22,6 +22,7 @@ import { Post } from '../../models/post.model';
     ]),
   ]
 })
+
 export class PhotoGridComponent implements OnInit, OnDestroy  {
   masonryItems: Post[] = [];
   isDraggable: boolean = false;
@@ -56,6 +57,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
   ngOnDestroy() {
     this.isDraggableSubscription.unsubscribe();
     this.postsLoadedSubscription.unsubscribe();
+    this.masonryItems = [];
   }
 
   onPhotoFrameClicked(post: Post) {
