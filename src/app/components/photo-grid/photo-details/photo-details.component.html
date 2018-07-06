@@ -16,6 +16,6 @@
   <div class="mw3 flex flex-column justify-around" [@rightSideBar]>
     <code class="tr">open details</code>
     <code class="tr">right arrow</code>
-    <h3 class="helvetica pr1" style="writing-mode:vertical-rl;"><span class="f1 fw6 tracked" [@rightSideBarLogo]>Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':logoColor, 'filter': 'contrast(200%)' }">PDX</span></h3>
+    <h3 class="helvetica pr1" style="writing-mode:vertical-rl;" (click)="onLogoClick()"><span class="f1 fw6 tracked" [@rightSideBarLogo]>Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':logoColor, 'filter': 'contrast(200%)' }">PDX</span></h3>
   </div>
 </div>

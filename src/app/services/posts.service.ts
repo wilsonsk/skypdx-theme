@@ -1,4 +1,4 @@
-import { Injectable, Component, OnInit } from '@angular/core';
+import { Injectable, Component, OnInit, OnDestroy } from '@angular/core';
 import { WpApiPosts } from 'wp-api-angular';
 import { Headers } from '@angular/http';
 import { Subject } from 'rxjs';
@@ -53,5 +53,10 @@ export class PostsService {
 
   getPostById():Post {
     return this.postById;
+  }
+
+  reset() {
+    this.postsArray = [];
+    this.postById = null;
   }
 }

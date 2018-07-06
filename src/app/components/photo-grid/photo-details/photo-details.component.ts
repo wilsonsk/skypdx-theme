@@ -80,7 +80,7 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
-      this.location.back(1);
+      this.location.go('../');
     });
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
@@ -111,10 +111,11 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   }
 
   onLogoClick() {
-    // this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 
-  ngOnDestroy():void {
+  ngOnDestroy() {
     this.postLoadedSubscription.unsubscribe();
+    this.postsService.reset();
   }
 }

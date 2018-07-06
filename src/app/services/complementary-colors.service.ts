@@ -85,39 +85,42 @@ export class ComplementaryColorsService {
   constructor(private photoService: PhotoService) { }
 
   getComplementaryColors() {
-    if(this.isDefaultColorSelected) {
-      const colorSelector = Math.floor(Math.random() * this.complementaryColors.length);
-      switch(colorSelector) {
-        case 0:
-          this.isDefaultColorSelected = false;
-          this.photoService.toggleDraggable();
-          return this.complementaryColors[colorSelector];
-        case 1:
-          this.isDefaultColorSelected = false;
-          this.photoService.toggleDraggable();
-          return this.complementaryColors[colorSelector];
-        case 3:
-          this.isDefaultColorSelected = false;
-          this.photoService.toggleDraggable();
-          return this.complementaryColors[colorSelector];
-        case 4:
-          this.isDefaultColorSelected = false;
-          this.photoService.toggleDraggable();
-          return this.complementaryColors[colorSelector];
-        case undefined:
-          this.isDefaultColorSelected = false;
-          this.photoService.toggleDraggable();
-          return this.complementaryColors[0];
-        default:
-          this.isDefaultColorSelected = false;
-          this.photoService.toggleDraggable();
-          return this.complementaryColors[0];
-      }
-    } else {
-      this.isDefaultColorSelected = true;
-      this.photoService.toggleDraggable();
-      return this.defaultColors;
-    }
+    // if(this.isDefaultColorSelected) {
+    //   const colorSelector = Math.floor(Math.random() * this.complementaryColors.length);
+    //   switch(colorSelector) {
+    //     case 0:
+    //       this.isDefaultColorSelected = false;
+    //       this.photoService.toggleDraggable();
+    //       return this.complementaryColors[colorSelector];
+    //     case 1:
+    //       this.isDefaultColorSelected = false;
+    //       this.photoService.toggleDraggable();
+    //       return this.complementaryColors[colorSelector];
+    //     case 3:
+    //       this.isDefaultColorSelected = false;
+    //       this.photoService.toggleDraggable();
+    //       return this.complementaryColors[colorSelector];
+    //     case 4:
+    //       this.isDefaultColorSelected = false;
+    //       this.photoService.toggleDraggable();
+    //       return this.complementaryColors[colorSelector];
+    //     case undefined:
+    //       this.isDefaultColorSelected = false;
+    //       this.photoService.toggleDraggable();
+    //       return this.complementaryColors[0];
+    //     default:
+    //       this.isDefaultColorSelected = false;
+    //       this.photoService.toggleDraggable();
+    //       return this.complementaryColors[0];
+    //   }
+    // } else {
+    //   this.isDefaultColorSelected = true;
+    //   this.photoService.toggleDraggable();
+    //   return this.defaultColors;
+    // }
+
+    return this.defaultColors;
+
 
 
   }
