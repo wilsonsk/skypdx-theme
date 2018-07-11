@@ -25,6 +25,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.stateChangedSubscription.unsubscribe();
   }
 
   test() {

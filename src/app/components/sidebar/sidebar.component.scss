@@ -32,39 +32,39 @@
     @include box_shadow(1);
     height: $sidebar__main-btn-height;
 
-    // &:hover {
-    //   transform: translateY(-.3rem);
-    //   @include box_shadow(2);
-    //
-    //   &:after {
-    //     transform: scaleX(1.4) scaleY(1.6);
-    //     opacity: 0;
-    //   }
-    // }
+    &:hover {
+      transform: translateY(-.3rem);
+      @include box_shadow(2);
 
-    // &:active {
-    //   transform: translateY(-.1rem);
-    //   @include box_shadow(1);
-    // }
+      &:after {
+        transform: scaleX(1.4) scaleY(1.6);
+        opacity: 0;
+      }
+    }
 
-    // &::after {
-    //   content: "";
-    //   width: $sidebar-width;
-    //   height: $sidebar__main-btn-height;
-    //   position: absolute;
-    //   top: 0;
-    //   left: 0;
-    //   z-index: -1;
-    //   transition: all .4s;
-    //
-    //   background: $sidebar-secondary-color;
-    //   border-radius: $border-radius;
-    // }
-    //
-    // &--animated {
-    //   animation: moveInButton .5s ease-out .75s;
-    //   animation-fill-mode: backwards;
-    // }
+    &:active {
+      transform: translateY(-.1rem);
+      @include box_shadow(1);
+    }
+
+    &::after {
+      content: "";
+      width: $sidebar-width;
+      height: $sidebar__main-btn-height;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all .4s;
+
+      // background: $sidebar-secondary-color;
+      border-radius: $border-radius;
+    }
+
+    &--animated {
+      animation: moveInButton .5s ease-out .75s;
+      animation-fill-mode: backwards;
+    }
   }
 
   &__heading {

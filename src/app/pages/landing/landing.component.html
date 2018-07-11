@@ -1,3 +1,3 @@
-<app-sidebar *ngIf="state.gridIsOpen"></app-sidebar>
-<app-photo-grid *ngIf="state.gridIsOpen"></app-photo-grid>
-<app-hero *ngIf="!state.gridIsOpen"></app-hero>
+<app-sidebar class="db" *ngIf="state.gridIsOpen" [@sidebarAnimation]></app-sidebar>
+<app-photo-grid class="db" *ngIf="state.gridIsOpen" [@photoGridAnimation]></app-photo-grid>
+<app-hero class="db" *ngIf="!state.gridIsOpen" [@heroAnimation]></app-hero>
