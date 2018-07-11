@@ -5,8 +5,9 @@ import { state, trigger, transition, style, query, animate, keyframes, group, an
 import { Location } from '@angular/common';
 
 import { PostsService } from '../../../services/posts.service';
-
+import { StateService } from '../../../services/state.service';
 import { Post } from '../../../models/post.model';
+import { State } from '../../../models/state.model';
 
 @Component({
   selector: 'app-photo-details',
@@ -75,17 +76,24 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
   titleColor:string = "#000";
   logoColor:string = "#000";
   curPostId:number;
+  private stateChangedSubscription: Subscription;
 
-  constructor(private postsService:PostsService, private activatedRoute: ActivatedRoute, private location: Location, private router: Router) { }
+  state: State;
+
+  constructor(private stateService: StateService, private postsService:PostsService, private activatedRoute: ActivatedRoute, private location: Location, private router: Router) { }
 
   ngOnInit() {
     this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
+      this.stateService.setState('gridIsOpen', true);
       this.location.go('../');
     });
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
       // this.postLoaded();
       this.postsLoaded();
+    });
+    this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
+      this.state = stateCopy;
     });
   }
 

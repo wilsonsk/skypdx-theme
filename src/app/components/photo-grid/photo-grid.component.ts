@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { state, trigger, transition, style, query, animate, keyframes, group, animateChild } from '@angular/animations';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { Location } from '@angular/common';
 
 import { PhotoService } from '../../services/photo.service';
 import { PostsService } from '../../services/posts.service';
@@ -19,7 +20,7 @@ import { State } from '../../models/state.model';
         style({
           'opacity': '0',
         }),
-        animate(2000)
+        animate('2000ms 700ms')
       ])
     ]),
   ]
@@ -31,6 +32,8 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
   private isDraggableSubscription: Subscription;
   private postsLoadedSubscription: Subscription;
   private stateChangedSubscription: Subscription;
+  private locationSubscription: Subscription;
+
   photoId: number = 1;
   state: State;
 
@@ -39,9 +42,12 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
     gutter: 20,
   };
 
-  constructor(private photoService: PhotoService, private stateService: StateService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService) { }
+  constructor(private photoService: PhotoService, private stateService: StateService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService, private location: Location) { }
 
   ngOnInit() {
+    this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
+      this.stateService.setState('gridIsOpen', false);
+    });
     this.isDraggableSubscription = this.photoService.draggableToggled.subscribe((data) => {
       this.isDraggable = !this.isDraggable;
     });

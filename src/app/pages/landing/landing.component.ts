@@ -15,12 +15,12 @@ import { State } from '../../models/state.model';
   animations: [
     trigger('heroAnimation', [
       transition('void => *', [
-        style({'transform': 'translateX(-100%)', 'opacity': '0'}),
-        animate('1000ms 1000ms')
+        // style({'transform': 'scale(0.9)', 'opacity': '0'}),
+        style({'opacity': '0'}),
+        animate('500ms 600ms')
       ]),
       transition('* => void', [
-        animate(1000, style({
-          'transform': 'translateX(-100%)',
+        animate(700, style({
           'opacity': '0'
         }))
       ])
@@ -35,7 +35,7 @@ import { State } from '../../models/state.model';
     ]),
     trigger('photoGridAnimation', [
       transition('* => void', [
-        animate(1000, style({
+        animate(2000, style({
           'transform': 'translateX(100%)',
           'opacity': '0'
         }))

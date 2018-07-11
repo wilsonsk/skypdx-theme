@@ -37,6 +37,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { PhotoDetailComponent } from './pages/photo-detail/photo-detail.component';
 import { DraggableDirective } from './directives/draggable.directive';
 import { HeroComponent } from './hero/hero.component';
+import { HeaderMenuComponent } from './header-menu/header-menu.component';
 
 const appRoutes: Routes = [
   {
@@ -65,6 +66,7 @@ const appRoutes: Routes = [
     PhotoDetailComponent,
     DraggableDirective,
     HeroComponent,
+    HeaderMenuComponent,
   ],
   imports: [
     BrowserModule,
