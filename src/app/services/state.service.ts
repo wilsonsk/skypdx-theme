@@ -27,4 +27,10 @@ export class StateService {
     let stateCopy: State = Object.assign({}, this.state);
     return stateCopy;
   }
+
+  public setState(prop:string, val:any) {
+    this.state[prop] = val;
+    let stateCopy: State = Object.assign({}, this.state);
+    this.stateChanged.next(stateCopy);
+  }
 }
