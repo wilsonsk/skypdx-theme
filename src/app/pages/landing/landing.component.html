@@ -1,2 +1,3 @@
-<app-sidebar></app-sidebar>
-<app-photo-grid></app-photo-grid>
+<app-sidebar *ngIf="state.gridIsOpen"></app-sidebar>
+<app-photo-grid *ngIf="state.gridIsOpen"></app-photo-grid>
+<app-hero *ngIf="!state.gridIsOpen"></app-hero>

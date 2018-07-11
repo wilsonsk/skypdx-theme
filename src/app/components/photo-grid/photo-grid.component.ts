@@ -5,7 +5,9 @@ import { Subscription } from 'rxjs';
 
 import { PhotoService } from '../../services/photo.service';
 import { PostsService } from '../../services/posts.service';
+import { StateService } from '../../services/state.service';
 import { Post } from '../../models/post.model';
+import { State } from '../../models/state.model';
 
 @Component({
   selector: 'app-photo-grid',
@@ -28,14 +30,16 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
   isDraggable: boolean = false;
   private isDraggableSubscription: Subscription;
   private postsLoadedSubscription: Subscription;
+  private stateChangedSubscription: Subscription;
   photoId: number = 1;
+  state: State;
 
   public myOptions = {
     transitionDuration: '0.8s',
     gutter: 20,
   };
 
-  constructor(private photoService: PhotoService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService) { }
+  constructor(private photoService: PhotoService, private stateService: StateService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService) { }
 
   ngOnInit() {
     this.isDraggableSubscription = this.photoService.draggableToggled.subscribe((data) => {
@@ -43,6 +47,9 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
     });
     this.postsLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
       this.postsLoaded();
+    });
+    this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
+      this.state = stateCopy;
     });
   }
 

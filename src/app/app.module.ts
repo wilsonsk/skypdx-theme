@@ -23,6 +23,7 @@ import { NgxMasonryModule } from 'ngx-masonry';
 import { PhotoService } from './services/photo.service';
 import { ComplementaryColorsService } from './services/complementary-colors.service';
 import { PostsService } from './services/posts.service';
+import { StateService } from './services/state.service';
 
 // Components
 import { AppComponent } from './app.component';
@@ -35,6 +36,7 @@ import { PhotoDetailsComponent } from './components/photo-grid/photo-details/pho
 import { LandingComponent } from './pages/landing/landing.component';
 import { PhotoDetailComponent } from './pages/photo-detail/photo-detail.component';
 import { DraggableDirective } from './directives/draggable.directive';
+import { HeroComponent } from './hero/hero.component';
 
 const appRoutes: Routes = [
   {
@@ -62,6 +64,7 @@ const appRoutes: Routes = [
     LandingComponent,
     PhotoDetailComponent,
     DraggableDirective,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +81,8 @@ const appRoutes: Routes = [
   ],
   providers: [
     PhotoService,
-    ComplementaryColorsService
+    ComplementaryColorsService,
+    StateService
   ],
   bootstrap: [AppComponent]
 })
