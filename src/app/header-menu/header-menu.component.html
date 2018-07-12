@@ -1,21 +1,11 @@
-
 <div class="photo-detail flex h-100">
-  <div class="mw3 flex flex-column justify-around" [@leftSideBar]>
-    <code class="tr">open details</code>
-    <code (click)="onLeftArrowClick()">left arrow</code>
+  <div class="mw3 flex flex-column justify-around">
   </div>
   <div class="flex w-100 flex-column content-center">
     <div class="flex w-100 pa4">
-        <h3 *ngIf="post" class=" helvetica mt0 "><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':textColorSecondary }">{{ post.title }}</span></h3>
     </div>
     <div class="tc h-100">
-      <img *ngIf="post" class="photo-detail__image mw-100" src="{{ post.imagePath }}" alt="" [@photo] style="margin:0 auto;"/>
-      <!-- <div *ngIf="post" class="db" src="{{ post.imagePath }}" alt="" [@photo]></div> -->
-    </div>
   </div>
-  <div class="mw3 flex flex-column justify-around" [@rightSideBar]>
-    <code class="tr">open details</code>
-    <code class="tr">right arrow</code>
-    <h3 class="helvetica pr1" style="writing-mode:vertical-rl;" (click)="onLogoClick()"><span class="f1 fw6 tracked" [@rightSideBarLogo]>Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{ 'color':logoColor, 'filter': 'contrast(200%)' }">PDX</span></h3>
+  <div class="mw3 flex flex-column justify-around">
   </div>
 </div>
