@@ -1,3 +1,112 @@
+// @import "abstracts/variables";
+// @import "abstracts/mixins";
+// @import "base/animations";
+//
+// // Layout
+//
+// // $sidebar-primary-color: #ff7f50;
+// // $sidebar-secondary-color: #50f3ff;
+// // $sidebar-height: 94vh;
+// // $sidebar-breakpoint: 768px;
+// // $sidebar-width: 250px;
+// // $sidebar-width-hidden: calc(-#{$sidebar-width} + -#{$base-padding});
+// //
+// // $sidebar__main-btn-height: 225px;
+//
+// .sidebar {
+//   width: $sidebar-width;
+//   position: fixed;
+//   // top: $base-padding;
+//   // left: 0;
+//   margin-left: $base-padding;
+//   height: $sidebar-height;
+//   z-index: 999;
+//   background-color: $sidebar-primary-color;
+//   color: #fff !important;
+//   transition: all 0.3s;
+//   @include box_shadow(1);
+//   border-radius: $border-radius;
+//
+//   &__main-btn {
+//     background: $sidebar-secondary-color;
+//     @include box_shadow(1);
+//     height: $sidebar__main-btn-height;
+//
+//     &:hover {
+//       transform: translateY(-.3rem);
+//       @include box_shadow(2);
+//
+//       &:after {
+//         transform: scaleX(1.4) scaleY(1.6);
+//         opacity: 0;
+//       }
+//     }
+//
+//     &:active {
+//       transform: translateY(-.1rem);
+//       @include box_shadow(1);
+//     }
+//
+//     &::after {
+//       content: "";
+//       width: $sidebar-width;
+//       height: $sidebar__main-btn-height;
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       z-index: -1;
+//       transition: all .4s;
+//
+//       // background: $sidebar-secondary-color;
+//       border-radius: $border-radius;
+//     }
+//
+//     &--animated {
+//       animation: moveInButton .5s ease-out .75s;
+//       animation-fill-mode: backwards;
+//     }
+//   }
+//
+//   &__heading {
+//
+//   }
+//
+//   &__list {
+//   }
+//
+//   &__list-item {
+//
+//     a {
+//       color: $sidebar-secondary-color;
+//       text-decoration: none;
+//     }
+//
+//     &:hover {
+//       background-color: white;
+//       border-radius: $border-radius;
+//       transform: translateY(-.3rem);
+//       @include box_shadow(2);
+//
+//       &:after {
+//         transform: scaleX(1.4) scaleY(1.6);
+//         opacity: 0;
+//       }
+//
+//     }
+//
+//     &:active {
+//       transform: translateY(-.1rem);
+//       @include box_shadow(1);
+//     }
+//
+//   }
+//
+//   @media screen and (max-width: $sidebar-breakpoint) {
+//     margin-left: $sidebar-width-hidden;
+//   }
+//
+// }
+
 @import "abstracts/variables";
 @import "abstracts/mixins";
 @import "base/animations";
@@ -19,17 +128,14 @@
   // top: $base-padding;
   // left: 0;
   margin-left: $base-padding;
-  height: $sidebar-height;
   z-index: 999;
-  background-color: $sidebar-primary-color;
+  background-color: white;
   color: #fff !important;
   transition: all 0.3s;
-  @include box_shadow(1);
-  border-radius: $border-radius;
+
 
   &__main-btn {
-    background: $sidebar-secondary-color;
-    @include box_shadow(1);
+    background-color: white;
     height: $sidebar__main-btn-height;
 
     &:hover {
@@ -58,7 +164,6 @@
       transition: all .4s;
 
       // background: $sidebar-secondary-color;
-      border-radius: $border-radius;
     }
 
     &--animated {
