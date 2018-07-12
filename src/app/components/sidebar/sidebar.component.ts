@@ -16,7 +16,7 @@ import { ComplementaryColors } from '../../models/complementary-colors.model';
    trigger('routeAnimation', [
      transition('void => *', [
        style({'transform': 'translateX(-100%)', 'opacity': '0'}),
-       animate('1000ms 2500ms')
+       animate('750ms 2500ms')
      ]),
    ])
  ]
