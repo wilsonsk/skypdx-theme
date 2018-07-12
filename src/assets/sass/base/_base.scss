@@ -18,6 +18,7 @@
 html {
   font-size: $base-font-size;
   // font-size: 100%;
+  text-rendering: optimizeLegibility;
 }
 
 body {
