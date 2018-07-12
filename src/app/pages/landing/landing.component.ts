@@ -17,17 +17,17 @@ import { State } from '../../models/state.model';
       transition('void => *', [
         // style({'transform': 'scale(0.9)', 'opacity': '0'}),
         style({'opacity': '0'}),
-        animate('500ms 600ms')
+        animate('500ms 500ms')
       ]),
       transition('* => void', [
-        animate(700, style({
-          'opacity': '0',
-        }))
+        animate(700, keyframes([
+          style({ 'opacity': '0', offset: 0.2}),
+        ]))
       ])
     ]),
     trigger('sidebarAnimation', [
       transition('* => void', [
-        animate('1000ms', style({
+        animate('1500ms', style({
           'transform': 'translateX(-100%)',
           'opacity': '0'
         }))
@@ -35,10 +35,9 @@ import { State } from '../../models/state.model';
     ]),
     trigger('photoGridAnimation', [
       transition('* => void', [
-        animate(2000, style({
-          'transform': 'translateX(100%)',
-          'opacity': '0'
-        }))
+        animate(400, keyframes([
+          style({ 'opacity': '0', offset: 0.4}),
+        ]))
       ])
     ]),
   ]
@@ -47,6 +46,7 @@ export class LandingComponent implements OnInit {
   @Output() landingPageLoaded = new EventEmitter<any>();
   photoClicked: boolean = false;
   private stateChangedSubscription: Subscription;
+  private postsLoadedSubscription: Subscription;
 
   state: State;
 

@@ -20,7 +20,7 @@ import { State } from '../../models/state.model';
         style({
           'opacity': '0',
         }),
-        animate('2000ms 700ms')
+        animate('2000ms 400ms')
       ])
     ]),
   ]

@@ -28,8 +28,4 @@ export class HeroComponent implements OnInit, OnDestroy {
     this.stateChangedSubscription.unsubscribe();
   }
 
-  test() {
-    this.stateService.setState('gridIsOpen', true);
-  }
-
 }
