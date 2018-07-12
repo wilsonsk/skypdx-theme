@@ -23,14 +23,9 @@ export class HeroComponent implements OnInit, OnDestroy {
 
   heroStyle(): Object {
     if(this.landingPageLoaded) {
-      const url = 'url(' + this.landingPageImagePath + '),';
+      const url = 'url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
       return {
         'background': url,
-        'background-size':     'cover',
-        'background-repeat':   'no-repeat',
-        'background-position': 'center center',
-        // border: $base-padding solid white;
-        'background-attachment': 'fixed',
       };
     } else {
       return {
