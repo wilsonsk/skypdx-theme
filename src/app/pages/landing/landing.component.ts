@@ -33,13 +33,6 @@ import { State } from '../../models/state.model';
         }))
       ])
     ]),
-    trigger('photoGridAnimation', [
-      transition('* => void', [
-        animate(400, keyframes([
-          style({ 'opacity': '0', offset: 0.2}),
-        ]))
-      ])
-    ]),
   ]
  })
 export class LandingComponent implements OnInit {
