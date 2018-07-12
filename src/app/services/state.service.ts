@@ -17,6 +17,7 @@ export class StateService {
 
   public initState() {
     this.state = new State(
+      false,
       false
     )
     let stateCopy: State = Object.assign({}, this.state);

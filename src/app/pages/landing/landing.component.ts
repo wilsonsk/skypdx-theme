@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, HostListener } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { state, trigger, transition, style, animate, keyframes } from '@angular/animations';
 
@@ -35,11 +35,20 @@ import { State } from '../../models/state.model';
     ]),
   ]
  })
-export class LandingComponent implements OnInit {
+export class LandingComponent implements OnInit, OnDestroy {
   @Output() landingPageLoaded = new EventEmitter<any>();
   photoClicked: boolean = false;
   private stateChangedSubscription: Subscription;
   private postsLoadedSubscription: Subscription;
+
+  @HostListener("window:scroll", ['$event']) onWindowScroll($event) {
+    // do some stuff here when the window is scrolled
+    const verticalOffset = window.pageYOffset
+          || document.documentElement.scrollTop
+          || document.body.scrollTop || 0;
+    this.stateService.setState('didScroll', true);
+
+  }
 
   state: State;
 
@@ -49,8 +58,12 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
     this.state = this.stateService.getState();
     this.postsService.loadPosts();
+
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
       this.state = stateCopy;
     });
+  }
+
+  ngOnDestroy() {
   }
 }

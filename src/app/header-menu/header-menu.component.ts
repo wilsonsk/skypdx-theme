@@ -21,6 +21,8 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     this.state = this.stateService.getState();
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
       this.state = stateCopy;
+      if(this.state.didScroll) {
+      }
     });
   }
 

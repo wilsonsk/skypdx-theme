@@ -1,20 +1,46 @@
 import { Injectable, Component, OnInit, OnDestroy } from '@angular/core';
-import { WpApiPosts } from 'wp-api-angular';
+import { WpApiPosts, WpApiPages } from 'wp-api-angular';
 import { Headers } from '@angular/http';
 import { Subject } from 'rxjs';
 
 import { Post } from '../models/post.model';
+import { LandingPage } from '../models/landing-page.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostsService {
   postsLoaded = new Subject<any>();
+  landingPageLoaded = new Subject<any>();
   curId:number;
   postsArray:Post[] = [];
   postById:Post;
+  landingPage: LandingPage;
 
-  constructor(private wpApiPosts: WpApiPosts) {}
+  constructor(private wpApiPosts: WpApiPosts, private wpApiPages: WpApiPages) {}
+
+  loadLandingPage() {
+    const postsObservable = this.wpApiPages.getList();
+    const _this = this;
+    const pagesSubsciption = postsObservable.subscribe({
+      next(data) {
+        const pages = data.json();
+        for(var page in pages) {
+
+          if(pages[page].title['rendered'] === "Landing Page") {
+            const landing = pages[page];
+            _this.landingPage = new LandingPage(landing.acf['featured_image']);
+            _this.landingPageLoaded.next();
+
+          }
+        }
+      }
+    });
+  }
+
+  getLandingPage():LandingPage {
+    return this.landingPage;
+  }
 
   loadPosts():void {
     const postsObservable = this.wpApiPosts.getList();
