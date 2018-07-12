@@ -21,7 +21,7 @@ import { State } from '../../models/state.model';
       ]),
       transition('* => void', [
         animate(700, style({
-          'opacity': '0'
+          'opacity': '0',
         }))
       ])
     ]),

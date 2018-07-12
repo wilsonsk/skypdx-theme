@@ -3,12 +3,13 @@
 
 .hero {
   background: linear-gradient(
-    rgba(255, 0, 0, 0.3),
-    rgba(255, 0, 0, 0.3)
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
   ), url('../../assets/images/_DSC5771.jpg');
+  // background: url('../../assets/images/_DSC5771.jpg');
   background-size:     cover;
   background-repeat:   no-repeat;
   background-position: center center;
-  border: $base-padding solid white;
+  // border: $base-padding solid white;
 
 }
