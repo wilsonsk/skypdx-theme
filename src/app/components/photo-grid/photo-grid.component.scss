@@ -15,7 +15,7 @@
     @box-shadow: 0;
     margin-bottom: 1%;
     transition: all .3s cubic-bezier(0.25, .8, .25, 1);
-    border-radius: $border-radius;
+    // border-radius: $border-radius;
 
     &--width-1 {
       max-width: 12%;
@@ -43,11 +43,17 @@
 
     &:hover{
       @include box_shadow(4);
+      border-radius: $border-radius;
+
+      .photo-grid__photo {
+        border-radius: $border-radius;
+      }
 
       .photo-grid__details {
         color: black;
       }
     }
+
     &:active{
       @include box_shadow(0);
 
@@ -60,7 +66,7 @@
   // }
 
   &__photo {
-    border-radius: $border-radius;
+    // border-radius: $border-radius;
     object-fit: cover;
     // width: 100%;
     // height: auto;
