@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { StateService } from '../services/state.service';
@@ -13,7 +13,21 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
   private stateChangedSubscription: Subscription;
 
   state: State;
+  @ViewChild('headerMenu') headerMenu: ElementRef;
 
+  @HostListener("window:scroll", ['$event']) onWindowScroll($event) {
+    // do some stuff here when the window is scrolled
+    const verticalOffset = window.pageYOffset
+          || document.documentElement.scrollTop
+          || document.body.scrollTop || 0;
+    this.stateService.setState('didScroll', true);
+
+    if(verticalOffset > 0) {
+      this.headerMenu.nativeElement.style.position = 'fixed';
+    } else {
+      this.headerMenu.nativeElement.style.position = 'relative';
+    }
+  }
   constructor(private stateService: StateService) {
   }
 

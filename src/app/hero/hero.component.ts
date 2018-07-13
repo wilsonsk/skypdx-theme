@@ -21,7 +21,7 @@ export class HeroComponent implements OnInit, OnDestroy {
   landingPageImagePath: string;
   state: State;
 
-  @ViewChild('hero') element: ElementRef;
+  @ViewChild('hero') heroBackground: ElementRef;
 
   heroStyle(): Object {
     if(this.landingPageLoaded) {
@@ -53,9 +53,9 @@ export class HeroComponent implements OnInit, OnDestroy {
     const url_scrolled = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
 
     if(verticalOffset > 0) {
-      this.element.nativeElement.style.background = url_scrolled;
+      this.heroBackground.nativeElement.style.background = url_scrolled;
     } else {
-      this.element.nativeElement.style.background = url;
+      this.heroBackground.nativeElement.style.background = url;
     }
   }
 
