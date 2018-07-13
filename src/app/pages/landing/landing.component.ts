@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, Output, EventEmitter, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { state, trigger, transition, style, animate, keyframes } from '@angular/animations';
 
@@ -40,6 +40,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   photoClicked: boolean = false;
   private stateChangedSubscription: Subscription;
   private postsLoadedSubscription: Subscription;
+  @ViewChild('landingWrapper') landingWrapper: ElementRef;
 
   @HostListener("window:scroll", ['$event']) onWindowScroll($event) {
     // do some stuff here when the window is scrolled
@@ -50,6 +51,27 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   }
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    const width = event.target.innerWidth;
+
+    if(width != null) {
+      if(width < 768) {
+        alert(width + ' being viewd in xs');
+        this.stateService.setState('browserWidth', width);
+      } else if(width >= 768 && width < 992) {
+        alert(width + ' being viewd in sm');
+        this.stateService.setState('browserWidth', width);
+      } else if(width >= 992 && width < 1200) {
+        alert(width + ' being viewd in md');
+        this.stateService.setState('browserWidth', width);
+      } else if(width >= 1200) {
+        alert(width + ' being viewd in lg');
+        this.stateService.setState('browserWidth', width);
+      }
+    }
+  }
+
   state: State;
 
   constructor(private stateService: StateService, private postsService: PostsService) {
@@ -58,10 +80,29 @@ export class LandingComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.state = this.stateService.getState();
     this.postsService.loadPosts();
+    this.initialCheckBrowserWidth();
 
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
       this.state = stateCopy;
     });
+  }
+
+  initialCheckBrowserWidth() {
+    if(this.landingWrapper.nativeElement.offsetWidth != null) {
+      if(this.landingWrapper.nativeElement.offsetWidth < 768) {
+        alert(this.landingWrapper.nativeElement.offsetWidth + ' being viewd in xs');
+        this.stateService.setState('browserWidth', this.landingWrapper.nativeElement.offsetWidth);
+      } else if(this.landingWrapper.nativeElement.offsetWidth >= 768 && this.landingWrapper.nativeElement.offsetWidth < 992) {
+        alert(this.landingWrapper.nativeElement.offsetWidth + ' being viewd in sm');
+        this.stateService.setState('browserWidth', this.landingWrapper.nativeElement.offsetWidth);
+      } else if(this.landingWrapper.nativeElement.offsetWidth >= 992 && this.landingWrapper.nativeElement.offsetWidth < 1200) {
+        alert(this.landingWrapper.nativeElement.offsetWidth + ' being viewd in md');
+        this.stateService.setState('browserWidth', this.landingWrapper.nativeElement.offsetWidth);
+      } else if(this.landingWrapper.nativeElement.offsetWidth >= 1200) {
+        alert(this.landingWrapper.nativeElement.offsetWidth + ' being viewd in lg');
+        this.stateService.setState('browserWidth', this.landingWrapper.nativeElement.offsetWidth);
+      }
+    }
   }
 
   ngOnDestroy() {
