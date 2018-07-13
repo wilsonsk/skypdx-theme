@@ -20,10 +20,10 @@ export class StateService {
       false,
       false,
       null,
-      // false,
-      // false,
-      // false,
-      // false
+      false,
+      false,
+      false,
+      false
     )
     let stateCopy: State = Object.assign({}, this.state);
     this.stateChanged.next(stateCopy);
@@ -38,43 +38,38 @@ export class StateService {
     this.state[prop] = val;
     let stateCopy: State = Object.assign({}, this.state);
     this.stateChanged.next(stateCopy);
-    // this.checkState();
   }
 
-  // private checkState() {
-  //   this.checkBrowserWidth();
-  // }
-  //
-  // private checkBrowserWidth() {
-  //   if(this.state.browserWidth != null) {
-  //     if(this.state.browserWidth < 768) {
-  //       this.resetBrowserWidth();
-  //       alert('being viewd in xs');
-  //
-  //       this.setState('browserIsXs', true);
-  //     } else if(this.state.browserWidth >= 768 && this.state.browserWidth < 992) {
-  //       this.resetBrowserWidth();
-  //       alert('being viewd in sm');
-  //
-  //       this.setState('browserIsSm', true);
-  //     } else if(this.state.browserWidth >= 992 && this.state.browserWidth < 1200) {
-  //       this.resetBrowserWidth();
-  //       alert('being viewd in md');
-  //
-  //       this.setState('browserIsMd', true);
-  //     } else if(this.state.browserWidth >= 1200) {
-  //       this.resetBrowserWidth();
-  //       alert('being viewd in lg');
-  //
-  //       this.setState('browserIsLg', true);
-  //     }
-  //   }
-  // }
+  public setBrowserState(width:number) {
+    if(width != null) {
+      if(width < 768) {
+        this.resetBrowserWidth();
+        this.setState('browserIsXs', true);
+      } else if(width >= 768 && width < 992) {
+        this.resetBrowserWidth();
+        this.setState('browserIsSm', true);
+      } else if(width >= 992 && width < 1200) {
+        this.resetBrowserWidth();
+        this.setState('browserIsMd', true);
+      } else if(width >= 1200) {
+        this.resetBrowserWidth();
+        this.setState('browserIsLg', true);
+      }
+    }
+  }
 
   private resetBrowserWidth() {
-    // this.setState('browserIsXs', false);
-    // this.setState('browserIsSm', false);
-    // this.setState('browserIsMd', false);
-    // this.setState('browserIsLg', false);
+    if(this.state.browserIsXs) {
+      this.setState('browserIsXs', false);
+    }
+    if(this.state.browserIsSm) {
+      this.setState('browserIsSm', false);
+    }
+    if(this.state.browserIsMd) {
+      this.setState('browserIsMd', false);
+    }
+    if(this.state.browserIsLg) {
+      this.setState('browserIsLg', false);
+    }
   }
 }
