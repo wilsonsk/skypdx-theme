@@ -50,7 +50,8 @@ export class HeroComponent implements OnInit, OnDestroy {
           || document.body.scrollTop || 0;
     this.stateService.setState('didScroll', true);
     const url = 'url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
-    const url_scrolled = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
+    // const url_scrolled = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
+    const url_scrolled = 'linear-gradient(rgba(227, 226, 225, 0.3), rgba(227, 226, 225, 0.3)), url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
 
     if(verticalOffset > 0) {
       this.heroBackground.nativeElement.style.background = url_scrolled;
