@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { StateService } from '../services/state.service';
@@ -20,6 +20,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   landingPageLoaded: boolean;
   landingPageImagePath: string;
   state: State;
+
+  @ViewChild('hero') element: ElementRef;
 
   heroStyle(): Object {
     if(this.landingPageLoaded) {
@@ -47,7 +49,14 @@ export class HeroComponent implements OnInit, OnDestroy {
           || document.documentElement.scrollTop
           || document.body.scrollTop || 0;
     this.stateService.setState('didScroll', true);
+    const url = 'url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
+    const url_scrolled = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(' + this.landingPageImagePath + ') center center / cover no-repeat fixed';
 
+    if(verticalOffset > 0) {
+      this.element.nativeElement.style.background = url_scrolled;
+    } else {
+      this.element.nativeElement.style.background = url;
+    }
   }
 
   constructor(private stateService: StateService, private postsService: PostsService) {
