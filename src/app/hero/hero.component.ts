@@ -39,9 +39,7 @@ export class HeroComponent implements OnInit, OnDestroy {
         'background-attachment': 'fixed',
       };
     }
-
   }
-
 
   @HostListener("window:scroll", ['$event']) onWindowScroll($event) {
     // do some stuff here when the window is scrolled

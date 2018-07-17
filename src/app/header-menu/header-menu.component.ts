@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { state, trigger, transition, style, animate, keyframes } from '@angular/animations';
 
 import { StateService } from '../services/state.service';
 import { State } from '../models/state.model';
@@ -7,7 +8,28 @@ import { State } from '../models/state.model';
 @Component({
   selector: 'app-header-menu',
   templateUrl: './header-menu.component.html',
-  styleUrls: ['./header-menu.component.scss']
+  styleUrls: ['./header-menu.component.scss'],
+  animations: [
+    trigger('heroAnimation', [
+      transition('void => *', [
+        // style({'transform': 'scale(0.9)', 'opacity': '0'}),
+        style({'opacity': '0'}),
+        animate('500ms 500ms')
+      ]),
+      transition('* => void', [
+        animate(700, keyframes([
+          style({ 'opacity': '0', offset: 0.2}),
+        ]))
+      ])
+    ]),
+    trigger('headerMenuFade', [
+      transition('* => void', [
+        animate('500ms', style({
+          'opacity': '0'
+        }))
+      ])
+    ]),
+  ]
 })
 export class HeaderMenuComponent implements OnInit, OnDestroy {
   private stateChangedSubscription: Subscription;
@@ -21,13 +43,8 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
           || document.documentElement.scrollTop
           || document.body.scrollTop || 0;
     this.stateService.setState('didScroll', true);
-
-    if(verticalOffset > 0) {
-      this.headerMenu.nativeElement.style.position = 'fixed';
-    } else {
-      this.headerMenu.nativeElement.style.position = 'relative';
-    }
   }
+
   constructor(private stateService: StateService) {
   }
 

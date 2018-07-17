@@ -1,4 +1,4 @@
-<div #headerMenu class="flex flex-wrap justify-center w-100">
+<div #headerMenu *ngIf="!state.browserIsXs || state.didScroll" [@headerMenuFade] class="flex flex-wrap justify-center w-100">
   <div class="outline w-20-l w-50 pa3 mr2 mb2 white flex justify-center f3">
     <h3 class="helvetica pr1"><span class="f5-ns f-subheadline-l fw6 tracked">Sky</span><span class="f4 fw1 pl3 tracked-mega">PDX</span></h3>
   </div>
