@@ -33,6 +33,7 @@ import { State } from '../models/state.model';
 })
 export class HeaderMenuComponent implements OnInit, OnDestroy {
   private stateChangedSubscription: Subscription;
+  public fixHeader: boolean;
 
   state: State;
   @ViewChild('headerMenu') headerMenu: ElementRef;
@@ -42,6 +43,13 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     const verticalOffset = window.pageYOffset
           || document.documentElement.scrollTop
           || document.body.scrollTop || 0;
+
+    if(verticalOffset > 0) {
+      this.fixHeader = true;
+    } else {
+      this.fixHeader = false;
+    }
+
     this.stateService.setState('didScroll', true);
   }
 
