@@ -77,6 +77,8 @@
     width: $photo-grid-width-responsive;
 
     &__frame {
+      padding-bottom: 3rem;
+
       &--width-1 {
         max-width: 32%;
       }
@@ -91,6 +93,20 @@
 
       &--width-4 {
         max-width: 100%;
+      }
+
+      .photo-grid__details {
+        display: none;
+      }
+
+      &:hover{
+        box-shadow: none;
+        border-radius: 0;
+
+        .photo-grid__photo {
+          border-radius: 0;
+        }
+
       }
     }
   }
