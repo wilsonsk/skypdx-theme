@@ -23,6 +23,12 @@ export class StateService {
       false,
       false,
       false,
+      false,
+
+      false,
+      false,
+      false,
+      false,
       false
     )
     let stateCopy: State = Object.assign({}, this.state);
@@ -71,5 +77,16 @@ export class StateService {
     if(this.state.browserIsLg) {
       this.setState('browserIsLg', false);
     }
+  }
+
+  resetHighlight() {
+    this.setState('highlightArchitecture', false);
+    this.setState('highlightInteriorSpace', false);
+    this.setState('highlightComposite', false);
+    this.setState('highlightPortrait', false);
+    this.setState('highlightProduct', false);
+    this.setState('highlightAbout', false);
+    this.setState('highlightContact', false);
+    this.setState('highlightMyGear', false);
   }
 }

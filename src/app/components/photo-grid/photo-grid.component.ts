@@ -55,8 +55,10 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
       this.postsLoaded();
     });
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
+
       this.state = stateCopy;
     });
+
     this.postsLoaded();
     console.log(this.masonryItems.length)
   }

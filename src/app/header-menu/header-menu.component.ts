@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef } fro
 import { Subscription } from 'rxjs';
 import { state, trigger, transition, style, animate, keyframes } from '@angular/animations';
 
+import { PostsService } from '../services/posts.service';
 import { StateService } from '../services/state.service';
 import { State } from '../models/state.model';
 
@@ -53,7 +54,7 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     this.stateService.setState('didScroll', true);
   }
 
-  constructor(private stateService: StateService) {
+  constructor(private stateService: StateService, private postsService:PostsService) {
   }
 
   ngOnInit() {
@@ -73,7 +74,22 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     this.stateService.setState('gridIsOpen', true);
   }
 
-  openMyGear() {
+  openAbout() {
+    this.stateService.resetHighlight();
+    this.stateService.setState('highlightAbout', true);
+    this.stateService.setState('gridIsOpen', true);
+  }
+
+  openContact() {
+    this.stateService.resetHighlight();
+    this.stateService.setState('highlightContact', true);
+    this.stateService.setState('gridIsOpen', true);
+  }
+
+  openMyGear(category:number) {
+    this.stateService.resetHighlight();
+    this.stateService.setState('highlightMyGear', true);
+    this.postsService.loadPostsByCategory(category);
     this.stateService.setState('gridIsOpen', true);
   }
 

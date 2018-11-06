@@ -64,8 +64,6 @@ export class PostsService {
           posts[post].acf["featured_photo"] == true
           ) {
             const curPost = posts[post];
-            alert(JSON.stringify(curPost.categories[0]))
-
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
           }
         }
@@ -105,7 +103,7 @@ export class PostsService {
           ) {
             const curPost = posts[post];
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
-          // }
+          }
         }
         _this.postsLoaded.next();
       }
@@ -120,5 +118,6 @@ export class PostsService {
   reset() {
     this.postsArray = [];
     this.postById = null;
+    this.postsLoaded.next();
   }
 }

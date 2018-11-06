@@ -27,11 +27,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
   private postsLoadedSubscription: Subscription
   private stateChangedSubscription: Subscription;
   state: State;
-  highlightArchitecture: boolean = false;
-  highlightInteriorSpace: boolean = false;
-  highlightComposite: boolean = false;
-  highlightPortrait: boolean = false;
-  highlightProduct: boolean = false;
+  // highlightArchitecture: boolean = false;
+  // highlightInteriorSpace: boolean = false;
+  // highlightComposite: boolean = false;
+  // highlightPortrait: boolean = false;
+  // highlightProduct: boolean = false;
 
   constructor(private complementaryColorsService: ComplementaryColorsService, private stateService: StateService, private postsService:PostsService) { }
 
@@ -41,6 +41,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
       this.state = stateCopy;
     });
+
   }
 
   onChangeColors():void {
@@ -51,48 +52,40 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.stateService.setState('gridIsOpen', false);
   }
 
-  resetHighlight() {
-    this.highlightArchitecture = false;
-    this.highlightInteriorSpace = false;
-    this.highlightComposite = false;
-    this.highlightPortrait = false;
-    this.highlightProduct = false;
 
-    this.highlightAbout = false;
-    this.highlightContact = false;
-    this.highlightMyGear = false;
-  }
 
-  checkCategory(category:number[]) {
-    if(category[0] == 14) {
-      this.highlightArchitecture = true;
-    } else if(category[0] == 15) {
-          this.highlightInteriorSpace = true;
-    } else if(category[0] == 16) {
-          this.highlightComposite = true;
-    } else if(category[0] == 17) {
-          this.highlightPortrait = true;
-    } else if(category[0] == 18) {
-          this.highlightProduct = true;
-    } else if(category[0] == 19) {
-          this.highlightMyGear = true;
+  checkCategory(category:number) {
+    if(category == 14) {
+      this.stateService.setState('highlightArchitecture', true);
+    } else if(category == 15) {
+      this.stateService.setState('highlightInteriorSpace', true);
+    } else if(category == 16) {
+      this.stateService.setState('highlightComposite', true);
+    } else if(category == 17) {
+      this.stateService.setState('highlightPortrait', true);
+    } else if(category == 18) {
+      this.stateService.setState('highlightProduct', true);
+    } else if(category == 19) {
+      this.stateService.setState('highlightMyGear', true);
     }
   }
 
   loadAbout():void {
-    this.resetHighlight();
-    this.highlightAbout = true;
+    this.postsService.reset();
+    this.stateService.resetHighlight();
+    this.stateService.setState('highlightAbout', true);
 
   }
 
   loadContact():void {
-    this.resetHighlight();
-    this.highlightContact = true;
+    this.postsService.reset();
+    this.stateService.resetHighlight();
+    this.stateService.setState('highlightContact', true);
 
   }
 
-  loadPostsByCategory(category:number[]):void {
-    this.resetHighlight();
+  loadPostsByCategory(category:number):void {
+    this.stateService.resetHighlight();
     this.checkCategory(category);
     this.postsService.loadPostsByCategory(category);
   }
