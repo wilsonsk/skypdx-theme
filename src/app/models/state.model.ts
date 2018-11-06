@@ -8,10 +8,10 @@ export class State {
     public browserIsMd: boolean,  // 992px <= b < 1200px
     public browserIsLg: boolean,  // b >= 1200px
 
-    public highlightArchitecture: boolean;
-    public highlightInteriorSpace: boolean;
-    public highlightComposite: boolean;
-    public highlightPortrait: boolean;
-    public highlightProduct: boolean;
+    public highlightArchitecture: boolean,
+    public highlightInteriorSpace: boolean,
+    public highlightComposite: boolean,
+    public highlightPortrait: boolean,
+    public highlightProduct: boolean
   ){}
 }
