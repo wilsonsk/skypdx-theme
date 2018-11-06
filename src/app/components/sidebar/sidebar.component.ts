@@ -57,20 +57,38 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.highlightComposite = false;
     this.highlightPortrait = false;
     this.highlightProduct = false;
+
+    this.highlightAbout = false;
+    this.highlightContact = false;
+    this.highlightMyGear = false;
   }
 
   checkCategory(category:number[]) {
-    if(category[0] == 7 && category[1] == 2) {
+    if(category[0] == 14) {
       this.highlightArchitecture = true;
-    } else if(category[0] == 8 && category[1] == 2) {
+    } else if(category[0] == 15) {
           this.highlightInteriorSpace = true;
-    } else if(category[0] == 11 && category[1] == 2) {
+    } else if(category[0] == 16) {
           this.highlightComposite = true;
-    } else if(category[0] == 2 && category[1] == 9) {
+    } else if(category[0] == 17) {
           this.highlightPortrait = true;
-    } else if(category[0] == 2 && category[1] == 10) {
+    } else if(category[0] == 18) {
           this.highlightProduct = true;
+    } else if(category[0] == 19) {
+          this.highlightMyGear = true;
     }
+  }
+
+  loadAbout():void {
+    this.resetHighlight();
+    this.highlightAbout = true;
+
+  }
+
+  loadContact():void {
+    this.resetHighlight();
+    this.highlightContact = true;
+
   }
 
   loadPostsByCategory(category:number[]):void {
@@ -81,6 +99,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.stateChangedSubscription.unsubscribe();
+  }
+
+  goBack():void {
+    this.postsService.loadPosts();
+    this.stateService.setState('gridIsOpen', false);
   }
 
 }

@@ -8,21 +8,12 @@ import { LandingPage } from '../models/landing-page.model';
 
 // WP CATEGORIES INDICES:
 // Without Main Grid
-// Main Grid: [0] == 12; [1] == 2
-// Architecture: [0] == 7; [1] == 2
-// Interior Space: [0] == 8; [1] == 2
-// Composite: [0] == 11; [1] == 2
-// Portrait: [0] == 2; [1] == 9
-// Product: [0] == 2; [1] == 10
-// My Gear: [0] == 13; [1] == 2
-
-// With Main Grid
-// Architecture: [0] == 7; [1] == 12, [2] == 2
-// Interior Space: [0] == 8; [1] == 12, [2] == 2
-// Composite: [0] == 11; [1] == 12, [2] == 2
-// Portrait: [0] == 12; [1] == 2, [2] == 9
-// Product: [0] == 12; [1] == 2, [2] == 10
-// My Gear: [0] == 12; [1] == 13, [2] == 2
+// Architecture: [0] == 14
+// Interior Space: [0] == 15
+// Composite: [0] == 16
+// Portrait: [0] == 17
+// Product: [0] == 18
+// My Gear: [0] == 19
 
 @Injectable({
   providedIn: 'root'
@@ -67,11 +58,14 @@ export class PostsService {
     const pagesSubsciption = postsObservable.subscribe({
       next(data) {
         const posts = data.json();
+        _this.postsArray = [];
         for(var post in posts) {
           if(
           posts[post].acf["featured_photo"] == true
           ) {
             const curPost = posts[post];
+            alert(JSON.stringify(curPost.categories[0]))
+
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
           }
         }
@@ -98,7 +92,7 @@ export class PostsService {
     });
   }
 
-  loadPostsByCategory(category:number[]):void {
+  loadPostsByCategory(category:number):void {
     const postsObservable = this.wpApiPosts.getList();
     const _this = this;
     const pagesSubsciption = postsObservable.subscribe({
@@ -107,7 +101,7 @@ export class PostsService {
         _this.postsArray = [];
         for(var post in posts) {
           if(
-            posts[post].categories[0] == category[0] && posts[post].categories[1] == category[1]
+            posts[post].categories[0] == category
           ) {
             const curPost = posts[post];
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));

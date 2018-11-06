@@ -81,5 +81,4 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
       this.router.navigate([post.category, 'photo', post.id]);
     }
   }
-
 }
