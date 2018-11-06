@@ -15,6 +15,6 @@ export class State {
     public highlightProduct: boolean,
     public highlightAbout: boolean,
     public highlightContact: boolean,
-    public highlightMyGear: boolean,
+    public highlightMyGear: boolean
   ){}
 }

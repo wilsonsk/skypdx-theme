@@ -29,6 +29,9 @@ export class StateService {
       false,
       false,
       false,
+      false,
+      false,
+      false,
       false
     )
     let stateCopy: State = Object.assign({}, this.state);
