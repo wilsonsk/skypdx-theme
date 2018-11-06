@@ -11,20 +11,20 @@
      </code>
  </div>
   <div class="sidebar__list pt5">
-   <div class="sidebar__list-item sidebar__list-item--animated pt3 pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+   <div class="sidebar__list-item sidebar__list-item--animated pt3 pb3 bl br bw3" [ngStyle]="{'background-color': highlightArchitecture ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory([7,2])">
      <a class="w-90 helvetica f2 lh-copy pl4 pr4">Architecture </a>
    </div>
-   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()" (click)="loadPostsByCategory()">
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': highlightInteriorSpace ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory([8,2])">
      <a class="w-90 helvetica f2 lh-copy pl4 pr4 bw3">Interior Space </a>
    </div>
-   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3 b--black" [ngStyle]="{'background-color': highlightComposite ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory([11,2])">
+     <a class="w-90 helvetica f2 lh-copy pl4 pr4">Composite </a>
+   </div>
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': highlightPortrait ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory([2,9])">
      <a class="w-90 helvetica f2 lh-copy pl4 pr4">Portrait </a>
    </div>
-   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': highlightProduct ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory([2,10])">
      <a class="w-90 helvetica f2 lh-copy pl4 pr4">Product </a>
-   </div>
-   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3 b--black" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
-     <a class="w-90 helvetica f2 lh-copy pl4 pr4">Retouching </a>
    </div>
  </div>
 <!-- <div class="sidebar" [@routeAnimation] [ngStyle]="{'background-color': colors.secondaryColor}">

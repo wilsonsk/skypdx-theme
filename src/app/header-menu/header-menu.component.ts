@@ -69,7 +69,11 @@ export class HeaderMenuComponent implements OnInit, OnDestroy {
     this.stateChangedSubscription.unsubscribe();
   }
 
-  test() {
+  openPortfolio() {
+    this.stateService.setState('gridIsOpen', true);
+  }
+
+  openMyGear() {
     this.stateService.setState('gridIsOpen', true);
   }
 

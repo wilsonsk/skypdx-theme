@@ -6,6 +6,24 @@ import { Subject } from 'rxjs';
 import { Post } from '../models/post.model';
 import { LandingPage } from '../models/landing-page.model';
 
+// WP CATEGORIES INDICES:
+// Without Main Grid
+// Main Grid: [0] == 12; [1] == 2
+// Architecture: [0] == 7; [1] == 2
+// Interior Space: [0] == 8; [1] == 2
+// Composite: [0] == 11; [1] == 2
+// Portrait: [0] == 2; [1] == 9
+// Product: [0] == 2; [1] == 10
+// My Gear: [0] == 13; [1] == 2
+
+// With Main Grid
+// Architecture: [0] == 7; [1] == 12, [2] == 2
+// Interior Space: [0] == 8; [1] == 12, [2] == 2
+// Composite: [0] == 11; [1] == 12, [2] == 2
+// Portrait: [0] == 12; [1] == 2, [2] == 9
+// Product: [0] == 12; [1] == 2, [2] == 10
+// My Gear: [0] == 12; [1] == 13, [2] == 2
+
 @Injectable({
   providedIn: 'root'
 })
@@ -49,7 +67,15 @@ export class PostsService {
       next(data) {
         const posts = data.json();
         for(var post in posts) {
-          if(posts[post].categories[0] == 7 && posts[post].categories[1] == 2) {
+          // check if main grid
+          if(
+            posts[post].categories[0] == 7 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
+            posts[post].categories[0] == 8 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
+            posts[post].categories[0] == 11 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
+            posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 19 ||
+            posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 10 ||
+            posts[post].categories[0] == 12 && posts[post].categories[1] == 13 && posts[post].categories[2] == 2
+          ) {
             const curPost = posts[post];
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
           }
@@ -77,18 +103,34 @@ export class PostsService {
     });
   }
 
-  loadPostsByCategory():void {
+  loadPostsByCategory(category:number[]):void {
     const postsObservable = this.wpApiPosts.getList();
     const _this = this;
     const pagesSubsciption = postsObservable.subscribe({
       next(data) {
         const posts = data.json();
+        _this.postsArray = [];
         for(var post in posts) {
-          if(posts[post].categories[0] == 7 && posts[post].categories[1] == 2) {
+          if(
+            posts[post].categories[0] == category[0] && posts[post].categories[1] == category[1]
+
+            // posts[post].categories[0] == 8 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
+            // posts[post].categories[0] == 11 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
+            // posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 19 ||
+            // posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 10 ||
+            // posts[post].categories[0] == 12 && posts[post].categories[1] == 13 && posts[post].categories[2] == 2 ||
+            //
+            //
+            // posts[post].categories[0] == 7 && posts[post].categories[1] == 2 ||
+            // posts[post].categories[0] == 8 && posts[post].categories[1] == 2 ||
+            // posts[post].categories[0] == 11 && posts[post].categories[1] == 2 ||
+            // posts[post].categories[0] == 2 && posts[post].categories[1] == 9 ||
+            // posts[post].categories[0] == 2 && posts[post].categories[1] == 10 ||
+            // posts[post].categories[0] == 13 && posts[post].categories[1] == 2
+          ) {
             const curPost = posts[post];
-            _this.postsArray = [];
-            // _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
-          }
+            _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
+          // }
         }
         _this.postsLoaded.next();
       }

@@ -17,7 +17,7 @@ import { ComplementaryColors } from '../../models/complementary-colors.model';
    trigger('routeAnimation', [
      transition('void => *', [
        style({'transform': 'translateX(-100%)', 'opacity': '0'}),
-       animate('750ms 2500ms')
+       animate('550ms 2500ms')
      ]),
    ])
  ]
@@ -27,6 +27,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
   private postsLoadedSubscription: Subscription
   private stateChangedSubscription: Subscription;
   state: State;
+  highlightArchitecture: boolean = false;
+  highlightInteriorSpace: boolean = false;
+  highlightComposite: boolean = false;
+  highlightPortrait: boolean = false;
+  highlightProduct: boolean = false;
 
   constructor(private complementaryColorsService: ComplementaryColorsService, private stateService: StateService, private postsService:PostsService) { }
 
@@ -46,8 +51,32 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.stateService.setState('gridIsOpen', false);
   }
 
-  loadPostsByCategory():void {
-    this.postsService.loadPostsByCategory();
+  resetHighlight() {
+    this.highlightArchitecture = false;
+    this.highlightInteriorSpace = false;
+    this.highlightComposite = false;
+    this.highlightPortrait = false;
+    this.highlightProduct = false;
+  }
+
+  checkCategory(category:number[]) {
+    if(category[0] == 7 && category[1] == 2) {
+      this.highlightArchitecture = true;
+    } else if(category[0] == 8 && category[1] == 2) {
+          this.highlightInteriorSpace = true;
+    } else if(category[0] == 11 && category[1] == 2) {
+          this.highlightComposite = true;
+    } else if(category[0] == 2 && category[1] == 9) {
+          this.highlightPortrait = true;
+    } else if(category[0] == 2 && category[1] == 10) {
+          this.highlightProduct = true;
+    }
+  }
+
+  loadPostsByCategory(category:number[]):void {
+    this.resetHighlight();
+    this.checkCategory(category);
+    this.postsService.loadPostsByCategory(category);
   }
 
   ngOnDestroy() {
