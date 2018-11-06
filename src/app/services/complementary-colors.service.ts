@@ -76,6 +76,7 @@ export class ComplementaryColorsService {
   public defaultColors: ComplementaryColors = {
       primaryColor: '#999999',
       secondaryColor: '#F4F4F4',
+      whiteColor: '#FFF',
       tertiaryColor: '#000000',
       textColorPrimary: '#000000 ',
       textColorSecondary: '#000000'

@@ -60,6 +60,7 @@ export class PostsService {
     return this.landingPage;
   }
 
+  // Loads featured images
   loadPosts():void {
     const postsObservable = this.wpApiPosts.getList();
     const _this = this;
@@ -67,14 +68,8 @@ export class PostsService {
       next(data) {
         const posts = data.json();
         for(var post in posts) {
-          // check if main grid
           if(
-            posts[post].categories[0] == 7 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
-            posts[post].categories[0] == 8 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
-            posts[post].categories[0] == 11 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
-            posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 19 ||
-            posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 10 ||
-            posts[post].categories[0] == 12 && posts[post].categories[1] == 13 && posts[post].categories[2] == 2
+          posts[post].acf["featured_photo"] == true
           ) {
             const curPost = posts[post];
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
@@ -113,20 +108,6 @@ export class PostsService {
         for(var post in posts) {
           if(
             posts[post].categories[0] == category[0] && posts[post].categories[1] == category[1]
-
-            // posts[post].categories[0] == 8 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
-            // posts[post].categories[0] == 11 && posts[post].categories[1] == 12 && posts[post].categories[2] == 2 ||
-            // posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 19 ||
-            // posts[post].categories[0] == 12 && posts[post].categories[1] == 2 && posts[post].categories[2] == 10 ||
-            // posts[post].categories[0] == 12 && posts[post].categories[1] == 13 && posts[post].categories[2] == 2 ||
-            //
-            //
-            // posts[post].categories[0] == 7 && posts[post].categories[1] == 2 ||
-            // posts[post].categories[0] == 8 && posts[post].categories[1] == 2 ||
-            // posts[post].categories[0] == 11 && posts[post].categories[1] == 2 ||
-            // posts[post].categories[0] == 2 && posts[post].categories[1] == 9 ||
-            // posts[post].categories[0] == 2 && posts[post].categories[1] == 10 ||
-            // posts[post].categories[0] == 13 && posts[post].categories[1] == 2
           ) {
             const curPost = posts[post];
             _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
