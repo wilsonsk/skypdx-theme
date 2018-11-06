@@ -1,5 +1,5 @@
 <div class="sidebar" [@routeAnimation]>
- <div class="sidebar__main-btn sidebar__main-btn--animated br2" (click)="onReturnToHero()">
+ <div class="sidebar__main-btn sidebar__main-btn--animated br2">
      <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked" [ngStyle]="{'color': colors.textColorPrimary}">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{'color': colors.textColorSecondary}">PDX</span></h3>
      <p class="w-90 helvetica f3 lh-copy pl4 bl bw3" [ngStyle]="{'border-color': 'black', 'color': colors.textColorPrimary}">
        "The eye is a miracle. The camera is a tool."
@@ -10,7 +10,23 @@
        Photographer & Angular developer <br>based in Vancouver, Wa.
      </code>
  </div>
-
+  <div class="sidebar__list pt5">
+   <div class="sidebar__list-item sidebar__list-item--animated pt3 pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+     <a class="w-90 helvetica f2 lh-copy pl4 pr4">Architecture </a>
+   </div>
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()" (click)="loadPostsByCategory()">
+     <a class="w-90 helvetica f2 lh-copy pl4 pr4 bw3">Interior Space </a>
+   </div>
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+     <a class="w-90 helvetica f2 lh-copy pl4 pr4">Portrait </a>
+   </div>
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+     <a class="w-90 helvetica f2 lh-copy pl4 pr4">Product </a>
+   </div>
+   <div class="sidebar__list-item sidebar__list-item--animated pb3 bl br bw3 b--black" [ngStyle]="{'background-color': colors.secondaryColor}" (click)="loadPostsByCategory()">
+     <a class="w-90 helvetica f2 lh-copy pl4 pr4">Retouching </a>
+   </div>
+ </div>
 <!-- <div class="sidebar" [@routeAnimation] [ngStyle]="{'background-color': colors.secondaryColor}">
  <div class="sidebar__main-btn sidebar__main-btn--animated br2" (click)="onReturnToHero()" [ngStyle]="{'background-color': colors.primaryColor}">
      <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked" [ngStyle]="{'color': colors.textColorPrimary}">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{'color': colors.textColorSecondary}">PDX</span></h3>

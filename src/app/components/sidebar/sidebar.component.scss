@@ -180,10 +180,10 @@
   }
 
   &__list-item {
+    color: $color-black;
 
-    a {
-      color: $sidebar-secondary-color;
-      text-decoration: none;
+    code {
+      // color: $sidebar-secondary-color;
     }
 
     &:hover {

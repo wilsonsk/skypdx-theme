@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { StateService } from '../../services/state.service';
 import { State } from '../../models/state.model';
+import { PostsService } from '../../services/posts.service';
 import { ComplementaryColorsService } from '../../services/complementary-colors.service';
 import { ComplementaryColors } from '../../models/complementary-colors.model';
 
@@ -23,10 +24,11 @@ import { ComplementaryColors } from '../../models/complementary-colors.model';
 })
 export class SidebarComponent implements OnInit, OnDestroy {
   colors:ComplementaryColors;
+  private postsLoadedSubscription: Subscription
   private stateChangedSubscription: Subscription;
   state: State;
 
-  constructor(private complementaryColorsService: ComplementaryColorsService, private stateService: StateService) { }
+  constructor(private complementaryColorsService: ComplementaryColorsService, private stateService: StateService, private postsService:PostsService) { }
 
   ngOnInit() {
     this.colors = this.complementaryColorsService.getComplementaryColors();
@@ -42,6 +44,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   onReturnToHero() {
     this.stateService.setState('gridIsOpen', false);
+  }
+
+  loadPostsByCategory():void {
+    this.postsService.loadPostsByCategory();
   }
 
   ngOnDestroy() {

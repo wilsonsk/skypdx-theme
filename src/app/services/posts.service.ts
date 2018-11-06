@@ -77,6 +77,25 @@ export class PostsService {
     });
   }
 
+  loadPostsByCategory():void {
+    const postsObservable = this.wpApiPosts.getList();
+    const _this = this;
+    const pagesSubsciption = postsObservable.subscribe({
+      next(data) {
+        const posts = data.json();
+        for(var post in posts) {
+          if(posts[post].categories[0] == 7 && posts[post].categories[1] == 2) {
+            const curPost = posts[post];
+            _this.postsArray = [];
+            // _this.postsArray.push(new Post(curPost.id,curPost.author,curPost.categories[0],curPost.title['rendered'],curPost.acf['featured_image'], curPost.content['rendered'], curPost.date, curPost.link));
+          }
+        }
+        _this.postsLoaded.next();
+      }
+    });
+
+  }
+
   getPostById():Post {
     return this.postById;
   }

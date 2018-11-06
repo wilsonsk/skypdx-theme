@@ -62,6 +62,7 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
   }
 
   postsLoaded():void {
+    this.masonryItems = [];
     this.masonryItems = this.postsService.getPosts();
   }
 
