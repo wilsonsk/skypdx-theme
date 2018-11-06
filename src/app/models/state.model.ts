@@ -12,6 +12,9 @@ export class State {
     public highlightInteriorSpace: boolean,
     public highlightComposite: boolean,
     public highlightPortrait: boolean,
-    public highlightProduct: boolean
+    public highlightProduct: boolean,
+    public highlightAbout: boolean,
+    public highlightContact: boolean,
+    public highlightMyGear: boolean,
   ){}
 }
