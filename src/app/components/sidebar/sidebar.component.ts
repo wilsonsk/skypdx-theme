@@ -100,7 +100,10 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   goBack():void {
     this.postsService.loadPosts();
-    // this.stateService.setState('gridIsOpen', false);
+    this.stateService.setState('gridIsOpen', false);
   }
 
+  reloadFeatured():void {
+    this.postsService.loadPosts();
+  }
 }

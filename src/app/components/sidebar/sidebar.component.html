@@ -1,5 +1,5 @@
 <div class="sidebar" *ngIf="state.browserIsMd || state.browserIsLg" [@routeAnimation]>
- <div class="sidebar__main-btn  br2" (click)="goBack()">
+ <div class="sidebar__main-btn  br2" (click)="reloadFeatured()">
      <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked" [ngStyle]="{'color': colors.textColorPrimary}">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{'color': colors.textColorSecondary}">PDX</span></h3>
      <p class="w-90 helvetica f3 lh-copy fw1 tracked pl4 bl bw3" [ngStyle]="{'border-color': 'black', 'color': colors.textColorPrimary}">
        Designing and developing handcrafted digital assets.
