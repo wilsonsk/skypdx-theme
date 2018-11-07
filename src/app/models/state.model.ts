@@ -8,6 +8,8 @@ export class State {
     public browserIsMd: boolean,  // 992px <= b < 1200px
     public browserIsLg: boolean,  // b >= 1200px
 
+    public isDroppeddown: boolean,
+
     public highlightArchitecture: boolean,
     public highlightInteriorSpace: boolean,
     public highlightComposite: boolean,

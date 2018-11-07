@@ -89,6 +89,11 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.postsService.loadPostsByCategory(category);
   }
 
+  toggledDropdown() {
+    this.stateService.setState("isDroppeddown", !this.state.isDroppeddown);
+    alert(this.state.isDroppeddown)
+  }
+
   ngOnDestroy() {
     this.stateChangedSubscription.unsubscribe();
   }

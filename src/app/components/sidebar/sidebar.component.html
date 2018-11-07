@@ -66,16 +66,14 @@
 
 <!-- DROPDOWN -->
  <div *ngIf="state.browserIsSm || state.browserIsXs" dropdown>
-   <div class="sidebar__secondary-btn  bl bw3 br2 " dropdownToggle >
+   <div class="sidebar__secondary-btn  bl bw3 br2 dropdown-toggle" dropdownToggle (click)="toggledDropdown()">
        <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked" [ngStyle]="{'color': colors.textColorPrimary}">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{'color': colors.textColorSecondary}">PDX</span></h3>
        <hr class="w-75 ml4 mt4" [ngStyle]="{'border-color': 'black'}">
-       <code class="db f4 lh-copy pl4 pt2 black">
+       <code class="db f4 lh-copy pl4 pt3 black">
          Photographer & Angular developer <br>based in Portland, Or.
        </code>
    </div>
-   <ul id="dropdown-custom-html" *dropdownMenu class="dropdown-menu"
-       role="menu" aria-labelledby="button-custom-html">
-
+   <ul *dropdownMenu class="dropdown-menu"  [ngStyle]="{'display': state.isDroppeddown ? 'block' : 'none'}" >
        <div class="sidebar__list ">
         <div class="sidebar__list-item sidebar__list-item--animated tracked-tight pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightArchitecture ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(14)">
           <a class="w-90 helvetica f2 lh-copy pl4 pr4">Architecture </a>
