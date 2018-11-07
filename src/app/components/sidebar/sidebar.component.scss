@@ -172,6 +172,41 @@
     }
   }
 
+  &__secondary-btn {
+    background-color: white;
+    height: $sidebar__main-btn-height;
+    transform: translateY(-.3rem);
+    @include box_shadow(2);
+    &:after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+
+    &:active {
+      transform: translateY(-.1rem);
+      @include box_shadow(1);
+    }
+
+    &::after {
+      content: "";
+      width: $sidebar-width;
+      height: $sidebar__main-btn-height;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      transition: all .4s;
+
+      // background: $sidebar-secondary-color;
+    }
+
+    &--animated {
+      animation: moveInButton .5s ease-out .75s;
+      animation-fill-mode: backwards;
+    }
+  }
+
+
   &__heading {
 
   }

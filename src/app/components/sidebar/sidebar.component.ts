@@ -7,6 +7,7 @@ import { State } from '../../models/state.model';
 import { PostsService } from '../../services/posts.service';
 import { ComplementaryColorsService } from '../../services/complementary-colors.service';
 import { ComplementaryColors } from '../../models/complementary-colors.model';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 @Component({
   selector: 'app-sidebar',
@@ -51,8 +52,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
   onReturnToHero() {
     this.stateService.setState('gridIsOpen', false);
   }
-
-
 
   checkCategory(category:number) {
     if(category == 14) {

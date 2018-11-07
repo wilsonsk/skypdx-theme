@@ -1,4 +1,4 @@
-<div class="sidebar" [@routeAnimation]>
+<div class="sidebar" *ngIf="state.browserIsMd || state.browserIsLg" [@routeAnimation]>
  <div class="sidebar__main-btn sidebar__main-btn--animated br2" (click)="goBack()">
      <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked" [ngStyle]="{'color': colors.textColorPrimary}">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{'color': colors.textColorSecondary}">PDX</span></h3>
      <p class="w-90 helvetica f3 lh-copy pl4 bl bw3" [ngStyle]="{'border-color': 'black', 'color': colors.textColorPrimary}">
@@ -62,4 +62,49 @@
      <a [ngStyle]="{'color': colors.tertiaryColor}">Portfolio</a>
    </li>
  </ul> -->
+ </div>
+
+<!-- DROPDOWN -->
+ <div *ngIf="state.browserIsSm || state.browserIsXs" dropdown>
+   <div class="sidebar__secondary-btn  bl bw3 br2 " dropdownToggle >
+       <h3 class="sidebar__heading helvetica mt0 pa4"><span class="f-subheadline lh-solid fw6 tracked" [ngStyle]="{'color': colors.textColorPrimary}">Sky</span><span class="f4 fw1 pl3 tracked-mega" [ngStyle]="{'color': colors.textColorSecondary}">PDX</span></h3>
+       <hr class="w-75 ml4 mt4" [ngStyle]="{'border-color': 'black'}">
+       <code class="db f4 lh-copy pl4 pt2 black">
+         Photographer & Angular developer <br>based in Portland, Or.
+       </code>
+   </div>
+   <ul id="dropdown-custom-html" *dropdownMenu class="dropdown-menu"
+       role="menu" aria-labelledby="button-custom-html">
+
+       <div class="sidebar__list ">
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-tight pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightArchitecture ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(14)">
+          <a class="w-90 helvetica f2 lh-copy pl4 pr4">Architecture </a>
+        </div>
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-tight pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightInteriorSpace ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(15)">
+          <a class="w-90 helvetica f2 lh-copy pl4 pr4 bw3">Interior Space </a>
+        </div>
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-tight pt3 pb3 bl  bw3 b--black" [ngStyle]="{'background-color': state.highlightComposite ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(16)">
+          <a class="w-90 helvetica f2 lh-copy pl4 pr4">Composite </a>
+        </div>
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-tight pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightPortrait ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(17)">
+          <a class="w-90 helvetica f2 lh-copy pl4 pr4">Portrait </a>
+        </div>
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-tight pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightProduct ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(18)">
+          <a class="w-90 helvetica f2 lh-copy pl4 pr4">Product </a>
+        </div>
+      </div>
+
+       <div class="sidebar__list pt2">
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightAbout ? colors.primaryColor : colors.secondaryColor}" (click)="loadAbout()">
+          <code class="w-90  f4 lh-copy pl4 pr4">About </code>
+        </div>
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightContact ? colors.primaryColor : colors.secondaryColor}" (click)="loadContact()">
+          <code class="w-90  f4 lh-copy pl4 pr4 bw3">Contact Me </code>
+        </div>
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3 b--black" [ngStyle]="{'background-color': state.highlightMyGear ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(19)">
+          <code class="w-90  f4 lh-copy pl4 pr4">My Gear </code>
+        </div>
+      </div>
+
+   </ul>
  </div>

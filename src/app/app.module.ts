@@ -39,6 +39,8 @@ import { DraggableDirective } from './directives/draggable.directive';
 import { HeroComponent } from './hero/hero.component';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 const appRoutes: Routes = [
   {
     path: '',
@@ -75,6 +77,7 @@ const appRoutes: Routes = [
     // RouterModule.forRoot(appRoutes),
     AppRoutingModule,
     BrowserAnimationsModule,
+    BsDropdownModule.forRoot(),
     WpApiModule.forRoot({
       provide: WpApiLoader,
       useFactory: (WpApiLoaderFactory),
