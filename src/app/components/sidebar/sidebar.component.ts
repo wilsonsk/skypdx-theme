@@ -18,7 +18,8 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
    trigger('routeAnimation', [
      transition('void => *', [
        style({'transform': 'translateX(-100%)', 'opacity': '0'}),
-       animate('550ms 2500ms')
+       // animate('550ms 2500ms')
+       animate('0ms 0ms')
      ]),
    ])
  ]
