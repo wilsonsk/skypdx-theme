@@ -75,8 +75,8 @@ export class LandingComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.state = this.stateService.getState();
-    this.postsService.loadPosts();
     this.initialCheckBrowserWidth();
+    this.postsService.loadPosts();
 
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
       this.state = stateCopy;

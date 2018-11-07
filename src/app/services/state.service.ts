@@ -17,7 +17,7 @@ export class StateService {
 
   public initState() {
     this.state = new State(
-      false,
+      true,
       false,
       null,
       false,
@@ -54,25 +54,28 @@ export class StateService {
   public setBrowserState(width:number) {
     if(width != null) {
       if(width < 768) {
+        // this.setState('gridIsOpen', true);
+
         this.resetBrowserWidth();
         this.setState('browserIsXs', true);
-        this.setState('gridIsOpen', true);
 
       } else if(width >= 768 && width < 992) {
+        // this.setState('gridIsOpen', true);
+
         this.resetBrowserWidth();
         this.setState('browserIsSm', true);
-        this.setState('gridIsOpen', true);
 
       } else if(width >= 992 && width < 1200) {
+        // this.setState('gridIsOpen', false);
+
         this.resetBrowserWidth();
         this.setState('browserIsMd', true);
-        this.setState('gridIsOpen', false);
 
       } else if(width >= 1200) {
+        // this.setState('gridIsOpen', false);
+
         this.resetBrowserWidth();
         this.setState('browserIsLg', true);
-        this.setState('gridIsOpen', false);
-
       }
     }
   }
