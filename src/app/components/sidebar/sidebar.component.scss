@@ -133,7 +133,6 @@
   color: #fff !important;
   transition: all 0.3s;
 
-
   &__main-btn {
     background-color: white;
     height: $sidebar__main-btn-height;
@@ -239,7 +238,7 @@
 
   }
 
-  @media screen and (max-width: $sidebar-breakpoint) {
+  @media screen and (max-width: $sidebar-breakpoint-sm) {
     margin-left: $sidebar-width-hidden;
   }
 

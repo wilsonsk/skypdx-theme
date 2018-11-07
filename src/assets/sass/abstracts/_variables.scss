@@ -48,13 +48,16 @@ $gradient-tertiary-transparent: linear-gradient(to right bottom, rgba($color-ter
 
 // LAYOUT
 $base-padding: 3em;
+$grid-padding: 2em;
 $border-radius: 6px;
 
 // Sidebar
 $sidebar-primary-color: #ff7f50;
 $sidebar-secondary-color: #50f3ff;
 $sidebar-height: 94vh;
-$sidebar-breakpoint: 768px;
+$sidebar-breakpoint-xs: 768px;
+$sidebar-breakpoint-sm: 992px;
+$sidebar-breakpoint-md: 1200px;
 $sidebar-width: 38rem;
 $sidebar-width-hidden: calc(-#{$sidebar-width} - #{$base-padding});
 $sidebar__main-btn-height: 225px;
