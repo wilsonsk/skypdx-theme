@@ -56,15 +56,23 @@ export class StateService {
       if(width < 768) {
         this.resetBrowserWidth();
         this.setState('browserIsXs', true);
+        this.setState('gridIsOpen', true);
+
       } else if(width >= 768 && width < 992) {
         this.resetBrowserWidth();
         this.setState('browserIsSm', true);
+        this.setState('gridIsOpen', true);
+
       } else if(width >= 992 && width < 1200) {
         this.resetBrowserWidth();
         this.setState('browserIsMd', true);
+        this.setState('gridIsOpen', false);
+
       } else if(width >= 1200) {
         this.resetBrowserWidth();
         this.setState('browserIsLg', true);
+        this.setState('gridIsOpen', false);
+
       }
     }
   }
