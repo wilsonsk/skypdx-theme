@@ -177,10 +177,7 @@
     height: $sidebar__main-btn-height;
     transform: translateY(-.3rem);
     @include box_shadow(2);
-    &:after {
-      transform: scaleX(1.4) scaleY(1.6);
-      opacity: 0;
-    }
+
 
     &:active {
       transform: translateY(-.1rem);
