@@ -89,8 +89,8 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
     });
     this.postsService.loadPosts();
     this.postLoadedSubscription = this.postsService.postsLoaded.subscribe((data) => {
-      // this.postLoaded();
-      this.postsLoaded();
+      this.postLoaded();
+      // this.postsLoaded();
     });
     this.stateChangedSubscription = this.stateService.stateChanged.subscribe((stateCopy:State) => {
       this.state = stateCopy;
@@ -112,6 +112,7 @@ export class PhotoDetailsComponent implements OnInit, OnDestroy {
       return p.id == _this.curPostId;
     });
     this.post = tempArr[0];
+
   }
 
   onLeftArrowClick():void {

@@ -85,7 +85,6 @@ export class PostsService {
       next(data) {
         const post = data.json();
         _this.postById = new Post(post.id,post.author,post.categories[0],post.title['rendered'],post.acf['featured_image'], post.content['rendered'], post.date, post.link)
-        alert(JSON.stringify(_this.postById))
 
         _this.postsLoaded.next();
       }
