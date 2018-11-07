@@ -1,6 +1,8 @@
 export class State {
   constructor(
     public gridIsOpen: boolean,
+    public aboutIsOpen: boolean,
+    public contactIsOpen: boolean,
     public didScroll: boolean,
     public browserWidth: number,
     public browserIsXs: boolean,  // b < 768px

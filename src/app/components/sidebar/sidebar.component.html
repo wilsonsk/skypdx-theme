@@ -29,10 +29,10 @@
  </div>
 
  <div class="sidebar__list sidebar__main-btn--animated pt6">
-  <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightAbout ? colors.primaryColor : colors.secondaryColor}" (click)="loadAbout()">
+  <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightAbout ? colors.primaryColor : colors.secondaryColor}" (click)="loadAbout(20)">
     <code class="w-90  f3 lh-copy pl4 pr4">About </code>
   </div>
-  <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightContact ? colors.primaryColor : colors.secondaryColor}" (click)="loadContact()">
+  <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightContact ? colors.primaryColor : colors.secondaryColor}" (click)="loadContact(21)">
     <code class="w-90  f3 lh-copy pl4 pr4 bw3">Contact Me </code>
   </div>
   <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3 b--black" [ngStyle]="{'background-color': state.highlightMyGear ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(19)">
@@ -96,10 +96,10 @@
       </div>
 
        <div class="sidebar__list pt2">
-        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightAbout ? colors.primaryColor : colors.secondaryColor}" (click)="loadAbout()">
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightAbout ? colors.primaryColor : colors.secondaryColor}" (click)="loadAbout(20)">
           <code class="w-90  f4 lh-copy pl4 pr4">About </code>
         </div>
-        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightContact ? colors.primaryColor : colors.secondaryColor}" (click)="loadContact()">
+        <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3" [ngStyle]="{'background-color': state.highlightContact ? colors.primaryColor : colors.secondaryColor}" (click)="loadContact(21)">
           <code class="w-90  f4 lh-copy pl4 pr4 bw3">Contact Me </code>
         </div>
         <div class="sidebar__list-item sidebar__list-item--animated tracked-mega pt3 pb3 bl  bw3 b--black" [ngStyle]="{'background-color': state.highlightMyGear ? colors.primaryColor : colors.secondaryColor}" (click)="loadPostsByCategory(19)">

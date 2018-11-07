@@ -121,4 +121,9 @@ export class PostsService {
     this.postById = null;
     this.postsLoaded.next();
   }
+
+  clean() {
+    this.postsArray = [];
+    this.postById = null;
+  }
 }

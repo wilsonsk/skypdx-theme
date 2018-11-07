@@ -40,6 +40,8 @@ import { HeroComponent } from './hero/hero.component';
 import { HeaderMenuComponent } from './header-menu/header-menu.component';
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 const appRoutes: Routes = [
   {
@@ -69,6 +71,8 @@ const appRoutes: Routes = [
     DraggableDirective,
     HeroComponent,
     HeaderMenuComponent,
+    AboutComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,

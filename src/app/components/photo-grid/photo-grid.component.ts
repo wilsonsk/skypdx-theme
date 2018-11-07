@@ -45,9 +45,9 @@ export class PhotoGridComponent implements OnInit, OnDestroy  {
   constructor(private photoService: PhotoService, private stateService: StateService, private router: Router, private activatedRouter: ActivatedRoute, private postsService:PostsService, private location: Location) { }
 
   ngOnInit() {
-    this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
-      this.stateService.setState('gridIsOpen', false);
-    });
+    // this.locationSubscription = <Subscription>(this.location.subscribe)(() => {
+    //   this.stateService.setState('gridIsOpen', false);
+    // });
     this.isDraggableSubscription = this.photoService.draggableToggled.subscribe((data) => {
       this.isDraggable = !this.isDraggable;
     });

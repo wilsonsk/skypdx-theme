@@ -50,10 +50,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.colors = this.complementaryColorsService.getComplementaryColors();
   }
 
-  onReturnToHero() {
-    this.stateService.setState('gridIsOpen', false);
-  }
-
   checkCategory(category:number) {
     if(category == 14) {
       this.stateService.setState('highlightArchitecture', true);
@@ -70,21 +66,28 @@ export class SidebarComponent implements OnInit, OnDestroy {
     }
   }
 
-  loadAbout():void {
+  loadAbout(category:number):void {
     this.postsService.reset();
     this.stateService.resetHighlight();
+    this.stateService.setState('contactIsOpen', false);
     this.stateService.setState('highlightAbout', true);
-
+    this.stateService.setState('gridIsOpen', false);
+    this.stateService.setState('aboutIsOpen', true);
   }
 
-  loadContact():void {
+  loadContact(category:number):void {
     this.postsService.reset();
     this.stateService.resetHighlight();
+    this.stateService.setState('aboutIsOpen', false);
     this.stateService.setState('highlightContact', true);
-
+    this.stateService.setState('gridIsOpen', false);
+    this.stateService.setState('contactIsOpen', true);
   }
 
   loadPostsByCategory(category:number):void {
+    this.stateService.setState('aboutIsOpen', false);
+    this.stateService.setState('contactIsOpen', false);
+    this.stateService.setState('gridIsOpen', true);
     this.stateService.resetHighlight();
     this.checkCategory(category);
     this.postsService.loadPostsByCategory(category);
@@ -98,7 +101,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
     this.stateChangedSubscription.unsubscribe();
   }
 
-  goBack():void {
+  returnToHero():void {
     this.postsService.loadPosts();
     this.stateService.setState('gridIsOpen', false);
   }

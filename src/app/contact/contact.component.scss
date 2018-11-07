@@ -1,0 +1,15 @@
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+
+.contact-grid {
+  width: $photo-grid-width;
+  transition: all 0.3s;
+  margin-left: calc(#{$sidebar-width} + #{$base-padding});
+  padding-left: $base-padding;
+  margin-top: $base-padding;
+
+  @media screen and (max-width: $sidebar-breakpoint-sm) {
+    margin-left: 0;
+    width: $photo-grid-width-responsive;
+  }
+}

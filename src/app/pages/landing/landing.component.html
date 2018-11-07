@@ -1,5 +1,9 @@
 <div #landingWrapper (window:resize)="onResize($event)">
-  <app-sidebar class="db" *ngIf="state.gridIsOpen" [@sidebarAnimation]></app-sidebar>
+  <!-- <app-sidebar class="db" *ngIf="state.gridIsOpen" [@sidebarAnimation]></app-sidebar> -->
+  <app-sidebar class="db" [@sidebarAnimation]></app-sidebar>
   <app-photo-grid class="db" *ngIf="state.gridIsOpen"></app-photo-grid>
-  <app-hero class="db" *ngIf="!state.gridIsOpen" [@heroAnimation]></app-hero>
+  <!-- <app-photo-grid class="db"></app-photo-grid> -->
+  <!-- <app-hero class="db" *ngIf="!state.gridIsOpen" [@heroAnimation]></app-hero> -->
+  <app-about class="db" *ngIf="state.aboutIsOpen" [@heroAnimation]></app-about>
+  <app-contact class="db" *ngIf="state.contactIsOpen" [@heroAnimation]></app-contact>
 </div>
