@@ -91,7 +91,6 @@ export class SidebarComponent implements OnInit, OnDestroy {
 
   toggledDropdown() {
     this.stateService.setState("isDroppeddown", !this.state.isDroppeddown);
-    alert(this.state.isDroppeddown)
   }
 
   ngOnDestroy() {
