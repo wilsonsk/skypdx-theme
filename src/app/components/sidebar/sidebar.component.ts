@@ -69,6 +69,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   loadAbout(category:number):void {
     this.postsService.reset();
     this.stateService.resetHighlight();
+    this.stateService.setState('featuredIsOpen', false);
     this.stateService.setState('contactIsOpen', false);
     this.stateService.setState('highlightAbout', true);
     this.stateService.setState('gridIsOpen', false);
@@ -78,6 +79,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   loadContact(category:number):void {
     this.postsService.reset();
     this.stateService.resetHighlight();
+    this.stateService.setState('featuredIsOpen', false);
     this.stateService.setState('aboutIsOpen', false);
     this.stateService.setState('highlightContact', true);
     this.stateService.setState('gridIsOpen', false);
@@ -85,6 +87,7 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   loadPostsByCategory(category:number):void {
+    this.stateService.setState('featuredIsOpen', false);
     this.stateService.setState('aboutIsOpen', false);
     this.stateService.setState('contactIsOpen', false);
     this.stateService.setState('gridIsOpen', true);
@@ -107,6 +110,12 @@ export class SidebarComponent implements OnInit, OnDestroy {
   }
 
   reloadFeatured():void {
+    this.postsService.reset();
+    this.stateService.resetHighlight();
+    this.stateService.setState('aboutIsOpen', false);
+    this.stateService.setState('contactIsOpen', false);
+    this.stateService.setState('featuredIsOpen', true);
+    this.stateService.setState('gridIsOpen', true);
     this.postsService.loadPosts();
   }
 }

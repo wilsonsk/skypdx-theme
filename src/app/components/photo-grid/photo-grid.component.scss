@@ -1,6 +1,19 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 
+.featured-grid {
+  width: $photo-grid-width;
+  transition: all 0.3s;
+  margin-left: calc(#{$sidebar-width} + #{$base-padding});
+  padding-left: $base-padding;
+  margin-top: $base-padding;
+
+  @media screen and (max-width: $sidebar-breakpoint-sm) {
+    margin-left: 0;
+    width: $photo-grid-width-responsive;
+  }
+}
+
 .photo-grid {
   width: $photo-grid-width;
   transition: all 0.3s;
@@ -69,6 +82,7 @@
     // width: 100%;
     // height: auto;
     @include img-responsive;
+
   }
 
   @media screen and (max-width: $sidebar-breakpoint-md) {

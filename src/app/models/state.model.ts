@@ -1,5 +1,6 @@
 export class State {
   constructor(
+    public featuredIsOpen: boolean,
     public gridIsOpen: boolean,
     public aboutIsOpen: boolean,
     public contactIsOpen: boolean,

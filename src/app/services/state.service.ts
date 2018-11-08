@@ -18,6 +18,7 @@ export class StateService {
   public initState() {
     this.state = new State(
       true,
+      true,
       false,
       false,
       false,

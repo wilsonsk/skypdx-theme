@@ -1,4 +1,4 @@
-<ngx-masonry class="photo-grid" [options]="myOptions" [useImagesLoaded]="true" [@loadGrid]>
+<ngx-masonry class="photo-grid" *ngIf="!this.state.featuredIsOpen && this.state.gridIsOpen" [options]="myOptions" [useImagesLoaded]="true" [@loadGrid]>
   <!-- <ngxMasonryItem class="photo-grid__frame" (click)="onPhotoFrameClicked(post)" DraggableDirective [appDraggable]='isDraggable'  *ngFor="let post of masonryItems; let i = index;" appSizePhoto> -->
   <ngxMasonryItem class="photo-grid__frame" (click)="onPhotoFrameClicked(post)" *ngFor="let post of masonryItems; let i = index;" appSizePhoto>
     <img src="{{ post.imagePath }}" alt="" class="photo-grid__photo" />
@@ -6,5 +6,11 @@
       <h6 class="helvetica f1-l f2-m fw8 lh-solid tracked">{{ post.title }}</h6>
       <div class="f6 lh-copy">{{ post.content }}</div>
     </div>
+ </ngxMasonryItem>
+</ngx-masonry>
+<ngx-masonry class="featured-grid" *ngIf="this.state.featuredIsOpen" [options]="myOptions" [useImagesLoaded]="true" [@loadGrid]>
+  <!-- <ngxMasonryItem class="photo-grid__frame" (click)="onPhotoFrameClicked(post)" DraggableDirective [appDraggable]='isDraggable'  *ngFor="let post of masonryItems; let i = index;" appSizePhoto> -->
+  <ngxMasonryItem class=" " (click)="onPhotoFrameClicked(post)" *ngFor="let post of masonryItems; let i = index;" >
+    <img src="{{ post.imagePath }}" alt="" class="" />
  </ngxMasonryItem>
 </ngx-masonry>
