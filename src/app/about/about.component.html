@@ -1,9 +1,9 @@
-<ngx-masonry class="about-grid" [options]="myOptions" [useImagesLoaded]="true" [@loadAbout]>
-  <ngxMasonryItem class="photo-grid__frame" *ngFor="let post of masonryItems; let i = index;" appSizePhoto>
-    <img src="{{ post.imagePath }}" alt="" class="photo-grid__photo" />
-     <div class="photo-grid__details">
-       <h6 class="helvetica f1-l f2-m fw8 lh-solid tracked">{{ post.title }}</h6>
-       <div class="f6 lh-copy">{{ post.content }}</div>
-     </div>
-  </ngxMasonryItem>
-</ngx-masonry>
+<div class=" about-grid" [@loadAbout]>
+  <div class="fl w-100 w-100-m w-50-ns pa2">
+    <img src="{{ post.imagePath }}" alt="" class="about-grid__photo" />
+  </div>
+  <div class="about-grid__details fl w-100 w-100-m w-40-ns pa2 ml5-l">
+    <h6 class="helvetica f-headline  lh-solid tracked-tight">{{ post.title }}</h6>
+    <div class="helvetica f1 lh-copy mt5">{{ post.content }}</div>
+  </div>
+</div>

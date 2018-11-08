@@ -25,13 +25,14 @@ import { Post } from '../models/post.model';
 
 export class AboutComponent implements OnInit, OnDestroy {
   private stateChangedSubscription: Subscription;
-  masonryItems: Post[] = [];
+  posts: Post[] = [];
+  post: Post;
   private postsLoadedSubscription: Subscription;
   state: State;
 
   public myOptions = {
     transitionDuration: '0.8s',
-    gutter: 20,
+    gutter: 0,
   };
 
   constructor(private stateService: StateService, private postsService:PostsService) { }
@@ -48,12 +49,12 @@ export class AboutComponent implements OnInit, OnDestroy {
   }
 
   postsLoaded():void {
-    this.masonryItems = [];
-    this.masonryItems = this.postsService.getPosts();
+
+    this.posts = this.postsService.getPosts();
+    this.post = this.posts[0];
   }
 
   ngOnDestroy() {
     this.postsLoadedSubscription.unsubscribe();
-    this.masonryItems = [];
   }
 }
